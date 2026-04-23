@@ -20,11 +20,45 @@
 ## 首次部署
 
 ```bash
-git clone <your-repo> /opt/easy-web/app
+git clone https://github.com/uudon/easy-web.git /opt/easy-web/app
 cd /opt/easy-web/app
 npm install
 npm run build
 docker compose up -d --build
+```
+
+## 一次性可执行命令
+
+如果你的服务器还没准备目录，可以直接按顺序执行：
+
+```bash
+sudo mkdir -p /opt/easy-web
+sudo chown -R $USER:$USER /opt/easy-web
+git clone https://github.com/uudon/easy-web.git /opt/easy-web/app
+cd /opt/easy-web/app
+npm install
+npm run build
+docker compose up -d --build
+```
+
+## 更新发布
+
+后续每次更新代码后，在服务器执行：
+
+```bash
+cd /opt/easy-web/app
+git pull
+npm install
+npm run build
+docker compose up -d --build
+```
+
+## 检查容器状态
+
+```bash
+cd /opt/easy-web/app
+docker compose ps
+docker compose logs --tail=100
 ```
 
 ## 当前建议上线方式
@@ -41,6 +75,10 @@ docker compose up -d --build
 
 - `80/tcp`
 - `22/tcp`
+
+如果你后续接入 HTTPS，再额外放行：
+
+- `443/tcp`
 
 ## HTTPS 证书
 

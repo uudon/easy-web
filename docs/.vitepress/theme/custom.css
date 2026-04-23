@@ -44,9 +44,20 @@
   border-radius: 8px;
 }
 
+.vp-doc h3 {
+  margin-top: 1.75rem;
+}
+
+.vp-doc ul {
+  padding-left: 1.2rem;
+}
+
+.vp-doc li + li {
+  margin-top: 0.35rem;
+}
+
 @media (min-width: 960px) {
   .VPHero.has-image .image {
     transform: translateY(8px);
   }
 }
-
