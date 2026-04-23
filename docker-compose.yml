@@ -1,0 +1,10 @@
+services:
+  easy-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: easy-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+

@@ -1,26 +1,22 @@
 ---
 layout: home
-navbar: false
 hero:
-  name: 'Easy-Vibe'
-  text: 'AI Coding Guide from Scratch'
-  tagline: 'A new coding paradigm for everyone. Whether you are a PM or a Full Stack Dev, find your AI coding path here.'
-  typingTagline:
-    - Coding, reimagined.
-    - Complexity, simplified.
-    - Every step, just right.
-    - Think it. Build it.
-    - Your pace. AI keeps up.
-    - From first character to complete system.
-    - Less friction. More creation.
-    - This is how coding should feel.
+  name: Easy Web
+  text: Bilingual VitePress starter
+  tagline: This locale is a placeholder while the Chinese site is built first.
   actions:
     - theme: brand
-      text: Start Vibe Together!
-      link: /en/stage-1/
+      text: Open Chinese site
+      link: /zh-cn/
     - theme: alt
-      text: GitHub
-      link: https://github.com/datawhalechina/easy-vibe
+      text: Tencent deployment
+      link: /zh-cn/deployment/tencent-cloud
+features:
+  - title: Built from the Easy-Vibe route
+    details: The site keeps the same VitePress-first architecture and static deployment strategy.
+  - title: Chinese-first rollout
+    details: The Chinese locale is the primary deliverable in the current phase.
+  - title: Ready for Docker
+    details: Production deployment uses a multi-stage image plus Nginx static hosting.
 ---
 
-<HomeFeatures />

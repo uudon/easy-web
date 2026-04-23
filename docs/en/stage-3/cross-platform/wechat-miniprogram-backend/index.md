@@ -1,3 +1,0 @@
-# Cross-Platform Development - How to Build a WeChat Mini Program (with Backend)
-
-> This chapter is currently being written. Stay tuned...

@@ -1,3 +1,0 @@
-# How to Integrate Stripe and Other Billing Systems
-
-> This chapter is currently being written. Stay tuned...

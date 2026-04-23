@@ -1,68 +1,22 @@
 ---
 layout: home
+title: 施行的个人日记
+hero:
+  name: 施行的个人日记
+  text: Believe me, the content is worth staying for
+  tagline: The default entry points to the Chinese site while keeping the multilingual VitePress structure in place.
+  actions:
+    - theme: brand
+      text: 进入中文站
+      link: /zh-cn/
+    - theme: alt
+      text: Deployment Guide
+      link: /zh-cn/deployment/tencent-cloud
+features:
+  - title: AI
+    details: Notes about practical AI workflows, tooling, and integration.
+  - title: Programming and Architecture
+    details: Long-form notes about coding, algorithms, architecture, and delivery.
+  - title: Tencent Cloud Ready
+    details: The static deployment path is ready for manual release on Ubuntu 22.04.
 ---
-
-<script setup>
-import { onMounted } from 'vue'
-import { withBase } from 'vitepress'
-
-const WELCOME_SEEN_KEY = 'easy-vibe-welcome-seen'
-
-onMounted(() => {
-  // 语言映射：浏览器语言代码 -> 网站路径
-  const langMap = {
-    'zh': '/zh-cn/',
-    'zh-cn': '/zh-cn/',
-    'zh-tw': '/zh-tw/',
-    'zh-hk': '/zh-tw/',
-    'en': '/en/',
-    'en-us': '/en/',
-    'en-gb': '/en/',
-    'ja': '/ja-jp/',
-    'ja-jp': '/ja-jp/',
-    'ko': '/ko-kr/',
-    'ko-kr': '/ko-kr/',
-    'es': '/es-es/',
-    'es-es': '/es-es/',
-    'fr': '/fr-fr/',
-    'fr-fr': '/fr-fr/',
-    'de': '/de-de/',
-    'de-de': '/de-de/',
-    'ar': '/ar-sa/',
-    'ar-sa': '/ar-sa/',
-    'vi': '/vi-vn/',
-    'vi-vn': '/vi-vn/'
-  }
-
-  // 获取浏览器语言
-  const browserLang = navigator.language.toLowerCase()
-  const browserLangShort = browserLang.split('-')[0]
-
-  // 确定目标语言
-  let targetLang = langMap[browserLang] || langMap[browserLangShort]
-
-  // 如果没有匹配的语言，默认使用中文
-  if (!targetLang) {
-    targetLang = '/zh-cn/'
-  }
-
-  const targetPath = withBase(targetLang)
-  let hasSeenWelcome = false
-  try {
-    hasSeenWelcome = window.localStorage.getItem(WELCOME_SEEN_KEY) === '1'
-  } catch {
-    hasSeenWelcome = false
-  }
-
-  if (!hasSeenWelcome) {
-    window.location.replace(
-      withBase(`/welcome/?next=${encodeURIComponent(targetPath)}`)
-    )
-    return
-  }
-
-  // 立即跳转，不显示任何内容
-  // 使用 withBase 自动处理 base 路径（根据 config.mjs 中的配置）
-  window.location.replace(targetPath)
-})
-</script>
