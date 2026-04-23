@@ -92,8 +92,74 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: 'Home', link: '/en/' },
-          { text: 'Chinese site', link: '/zh-cn/' }
-        ]
+          { text: 'About', link: '/en/about' },
+          { text: 'AI', link: '/en/topics/ai/' },
+          { text: 'Programming', link: '/en/topics/programming/' },
+          { text: 'Algorithms', link: '/en/topics/algorithms/' },
+          { text: 'Architecture', link: '/en/topics/architecture/' },
+          { text: 'Project Management', link: '/en/topics/project-management/' },
+          { text: 'Stories', link: '/en/stories/' },
+          { text: 'Appendix', link: '/en/appendix/' }
+        ],
+        sidebar: {
+          '/en/': [
+            {
+              text: 'Start',
+              items: [
+                { text: 'About', link: '/en/about' },
+                { text: 'Getting Started', link: '/en/getting-started' },
+                { text: 'Project Phases', link: '/en/project/phases' }
+              ]
+            },
+            {
+              text: 'Learning Path',
+              items: [
+                { text: 'Foundation', link: '/en/tracks/foundation' },
+                { text: 'Intermediate', link: '/en/tracks/intermediate' },
+                { text: 'Advanced', link: '/en/tracks/advanced' }
+              ]
+            },
+            {
+              text: 'Guides',
+              items: [
+                { text: 'Stage 1: Site Skeleton', link: '/en/guides/stage-1' },
+                { text: 'Stage 2: Content Structure', link: '/en/guides/stage-2' },
+                { text: 'Stage 3: Launch and Growth', link: '/en/guides/stage-3' }
+              ]
+            },
+            {
+              text: 'Topics',
+              items: [
+                { text: 'AI', link: '/en/topics/ai/' },
+                { text: 'Programming', link: '/en/topics/programming/' },
+                { text: 'Algorithms', link: '/en/topics/algorithms/' },
+                { text: 'Architecture', link: '/en/topics/architecture/' },
+                { text: 'Project Management', link: '/en/topics/project-management/' },
+                { text: 'Stories', link: '/en/stories/' },
+                { text: 'Appendix', link: '/en/appendix/' }
+              ]
+            },
+            {
+              text: 'Deployment',
+              items: [
+                { text: 'Tencent Cloud Ubuntu 22.04', link: '/en/deployment/tencent-cloud' },
+                { text: 'FAQ', link: '/en/faq' }
+              ]
+            }
+          ]
+        },
+        outline: {
+          level: [2, 3],
+          label: 'On this page'
+        },
+        docFooter: {
+          prev: 'Previous page',
+          next: 'Next page'
+        },
+        footer: {
+          message: 'Believe me, the content is worth staying for.',
+          copyright: 'Copyright © 2026 Shixing'
+        }
       }
     }
   },
