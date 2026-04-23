@@ -22,18 +22,21 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: '首页', link: '/zh-cn/' },
+          { text: '关于', link: '/zh-cn/about' },
+          { text: 'AI', link: '/zh-cn/topics/ai/' },
+          { text: '编程', link: '/zh-cn/topics/programming/' },
+          { text: '算法', link: '/zh-cn/topics/algorithms/' },
+          { text: '架构', link: '/zh-cn/topics/architecture/' },
+          { text: '项目管理', link: '/zh-cn/topics/project-management/' },
           { text: '用户故事', link: '/zh-cn/stories/' },
-          { text: '零基础入门', link: '/zh-cn/tracks/foundation' },
-          { text: '初中级开发', link: '/zh-cn/tracks/intermediate' },
-          { text: '高级开发', link: '/zh-cn/tracks/advanced' },
-          { text: '附录', link: '/zh-cn/appendix/' },
-          { text: '腾讯云部署', link: '/zh-cn/deployment/tencent-cloud' }
+          { text: '附录', link: '/zh-cn/appendix/' }
         ],
         sidebar: {
           '/zh-cn/': [
             {
               text: '开始',
               items: [
+                { text: '关于我', link: '/zh-cn/about' },
                 { text: '快速开始', link: '/zh-cn/getting-started' },
                 { text: '分阶段成果', link: '/zh-cn/project/phases' }
               ]
@@ -55,8 +58,13 @@ export default defineConfig({
               ]
             },
             {
-              text: '内容栏目',
+              text: '主题专栏',
               items: [
+                { text: 'AI', link: '/zh-cn/topics/ai/' },
+                { text: '编程', link: '/zh-cn/topics/programming/' },
+                { text: '算法', link: '/zh-cn/topics/algorithms/' },
+                { text: '架构', link: '/zh-cn/topics/architecture/' },
+                { text: '项目管理', link: '/zh-cn/topics/project-management/' },
                 { text: '用户故事', link: '/zh-cn/stories/' },
                 { text: '附录', link: '/zh-cn/appendix/' }
               ]
