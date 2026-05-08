@@ -11,5 +11,6 @@
 
 ## 推荐先读
 
+<!-- AUTO_TOPIC_ARTICLES:START -->
 1. [架构什么时候开始重要](/zh-cn/topics/architecture/when-architecture-starts-to-matter)
-
+<!-- AUTO_TOPIC_ARTICLES:END -->

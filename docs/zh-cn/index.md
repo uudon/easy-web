@@ -146,33 +146,40 @@ features:
   <section class="journal-panel">
     <p class="journal-eyebrow">Featured Reading</p>
     <h2>精选阅读</h2>
-    <div class="journal-grid journal-grid--featured">
-      <a class="journal-link-card" href="/zh-cn/topics/ai/build-your-ai-workflow">
-        <span class="journal-link-card__meta">AI</span>
-        <strong>把 AI 真正放进工作流，而不是停留在工具试玩</strong>
-        <p>从“偶尔用一下”到“每天都在用”，关键不是模型参数，而是工作流设计。</p>
-      </a>
-      <a class="journal-link-card" href="/zh-cn/topics/programming/how-i-structure-a-small-project">
-        <span class="journal-link-card__meta">编程</span>
-        <strong>我怎么给一个小项目搭结构，避免越写越乱</strong>
-        <p>项目变乱往往不是因为功能多，而是因为一开始就没有给结构留位置。</p>
-      </a>
-      <a class="journal-link-card" href="/zh-cn/topics/algorithms/how-to-learn-algorithms-with-real-feedback">
-        <span class="journal-link-card__meta">算法</span>
-        <strong>学算法最怕的不是难，而是没有反馈闭环</strong>
-        <p>刷题如果没有复盘和归类，很容易停留在“看过了”而不是“掌握了”。</p>
-      </a>
-      <a class="journal-link-card" href="/zh-cn/topics/architecture/when-architecture-starts-to-matter">
-        <span class="journal-link-card__meta">架构</span>
-        <strong>架构什么时候开始重要</strong>
-        <p>不是系统大了才谈架构，而是当你需要长期维护时，架构已经在影响成本。</p>
-      </a>
-      <a class="journal-link-card" href="/zh-cn/topics/project-management/how-i-push-a-project-forward">
-        <span class="journal-link-card__meta">项目管理</span>
-        <strong>我怎么让一个项目真的往前走</strong>
-        <p>推进项目不是“更努力”，而是让任务拆解、节奏和反馈机制变得清晰。</p>
-      </a>
-    </div>
+<!-- AUTO_HOME_FEATURED:START -->
+<div class="journal-grid journal-grid--featured">
+  <a class="journal-link-card" href="/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines">
+    <span class="journal-link-card__meta">AI</span>
+    <strong>我开始重新理解 AI 编程：不是让 AI 多写代码，而是让 AI 少犯错</strong>
+    <p>最近我看到一个很有意思的项目： andrej-karpathy-skills。</p>
+  </a>
+  <a class="journal-link-card" href="/zh-cn/topics/ai/build-your-ai-workflow">
+    <span class="journal-link-card__meta">AI</span>
+    <strong>把 AI 真正放进工作流，而不是停留在工具试玩</strong>
+    <p>很多人第一次接触 AI 时，最容易掉进一个误区：把 AI 当成一个“随手问一问”的工具，而不是一个工作流程里的稳定节点。</p>
+  </a>
+  <a class="journal-link-card" href="/zh-cn/topics/algorithms/backtracking-is-constrained-search">
+    <span class="journal-link-card__meta">算法</span>
+    <strong>回溯：不是暴力乱搜，而是有约束的枚举</strong>
+    <p>回溯最容易被误解成“暴力搜索”。</p>
+  </a>
+  <a class="journal-link-card" href="/zh-cn/topics/algorithms/binary-search-boundary-and-monotonicity">
+    <span class="journal-link-card__meta">算法</span>
+    <strong>二分查找：真正难的不是模板，而是边界和单调性</strong>
+    <p>很多人学二分时，第一反应都是背模板。</p>
+  </a>
+  <a class="journal-link-card" href="/zh-cn/topics/algorithms/build-complexity-intuition-first">
+    <span class="journal-link-card__meta">算法</span>
+    <strong>刷题之前，我更想先建立复杂度直觉</strong>
+    <p>很多人刷题时最难受的瞬间，不是“不会写”，而是：</p>
+  </a>
+  <a class="journal-link-card" href="/zh-cn/topics/algorithms/dp-is-about-choices">
+    <span class="journal-link-card__meta">算法</span>
+    <strong>为什么很多动态规划题其实是在处理“选择”</strong>
+    <p>很多人把动态规划理解成“列公式”，但我更愿意把它理解成：</p>
+  </a>
+</div>
+<!-- AUTO_HOME_FEATURED:END -->
   </section>
 
   <section class="journal-grid journal-grid--split">

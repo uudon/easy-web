@@ -11,5 +11,6 @@
 
 ## 推荐先读
 
+<!-- AUTO_TOPIC_ARTICLES:START -->
 1. [我怎么给一个小项目搭结构，避免越写越乱](/zh-cn/topics/programming/how-i-structure-a-small-project)
-
+<!-- AUTO_TOPIC_ARTICLES:END -->

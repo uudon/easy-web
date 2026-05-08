@@ -11,5 +11,6 @@
 
 ## 推荐先读
 
+<!-- AUTO_TOPIC_ARTICLES:START -->
 1. [我怎么让一个项目真的往前走](/zh-cn/topics/project-management/how-i-push-a-project-forward)
-
+<!-- AUTO_TOPIC_ARTICLES:END -->

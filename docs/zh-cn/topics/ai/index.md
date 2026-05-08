@@ -13,5 +13,7 @@ AI 这一栏不会把重点放在“哪家模型又更新了”，而是放在�
 
 ## 推荐先读
 
-1. [把 AI 真正放进工作流，而不是停留在工具试玩](/zh-cn/topics/ai/build-your-ai-workflow)
-
+<!-- AUTO_TOPIC_ARTICLES:START -->
+1. [我开始重新理解 AI 编程：不是让 AI 多写代码，而是让 AI 少犯错](/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines)
+2. [把 AI 真正放进工作流，而不是停留在工具试玩](/zh-cn/topics/ai/build-your-ai-workflow)
+<!-- AUTO_TOPIC_ARTICLES:END -->
