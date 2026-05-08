@@ -12,6 +12,6 @@
 ## 推荐先读
 
 <!-- AUTO_TOPIC_ARTICLES:START -->
-1. [project-scope-management](/zh-cn/topics/project-management/project-scope-management)
+1. [什么是范围管理？](/zh-cn/topics/project-management/project-scope-management)
 2. [我怎么让一个项目真的往前走](/zh-cn/topics/project-management/how-i-push-a-project-forward)
 <!-- AUTO_TOPIC_ARTICLES:END -->

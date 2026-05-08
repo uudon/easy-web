@@ -150,8 +150,8 @@ features:
 <div class="journal-grid journal-grid--featured">
   <a class="journal-link-card" href="/zh-cn/topics/project-management/project-scope-management">
     <span class="journal-link-card__meta">项目管理</span>
-    <strong>project-scope-management</strong>
-    <p>点击查看这篇文章的完整内容。</p>
+    <strong>什么是范围管理？</strong>
+    <p>先把项目“要做什么、不做什么”说清楚，再控制整个项目不要乱加、乱改、乱跑偏。 很多项目失败，不是因为技术做不出来，而是因为一开始范围没说清楚，过...</p>
   </a>
   <a class="journal-link-card" href="/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines">
     <span class="journal-link-card__meta">AI</span>
