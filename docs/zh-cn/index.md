@@ -148,6 +148,11 @@ features:
     <h2>精选阅读</h2>
 <!-- AUTO_HOME_FEATURED:START -->
 <div class="journal-grid journal-grid--featured">
+  <a class="journal-link-card" href="/zh-cn/topics/project-management/project-scope-management">
+    <span class="journal-link-card__meta">项目管理</span>
+    <strong>project-scope-management</strong>
+    <p>点击查看这篇文章的完整内容。</p>
+  </a>
   <a class="journal-link-card" href="/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines">
     <span class="journal-link-card__meta">AI</span>
     <strong>我开始重新理解 AI 编程：不是让 AI 多写代码，而是让 AI 少犯错</strong>
@@ -172,11 +177,6 @@ features:
     <span class="journal-link-card__meta">算法</span>
     <strong>刷题之前，我更想先建立复杂度直觉</strong>
     <p>很多人刷题时最难受的瞬间，不是“不会写”，而是：</p>
-  </a>
-  <a class="journal-link-card" href="/zh-cn/topics/algorithms/dp-is-about-choices">
-    <span class="journal-link-card__meta">算法</span>
-    <strong>为什么很多动态规划题其实是在处理“选择”</strong>
-    <p>很多人把动态规划理解成“列公式”，但我更愿意把它理解成：</p>
   </a>
 </div>
 <!-- AUTO_HOME_FEATURED:END -->
