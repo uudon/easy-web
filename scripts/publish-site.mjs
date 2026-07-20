@@ -4,9 +4,10 @@ import path from 'node:path';
 
 const rootDir = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 
+publishDraftsIfRequested();
 run('npm', ['run', 'sync:content']);
 run('npm', ['run', 'build']);
-run('git', ['add', 'docs', 'scripts', 'package.json', 'package-lock.json']);
+run('git', ['add', 'docs', 'drafts', 'scripts', 'package.json', 'package-lock.json']);
 
 const stagedFiles = capture('git', ['diff', '--cached', '--name-only'])
   .split('\n')
@@ -41,6 +42,45 @@ function readCommitMessage(stagedFiles) {
   }
 
   return 'feat: publish content updates';
+}
+
+function publishDraftsIfRequested() {
+  const args = collectDraftPublishArgs();
+  if (args.length === 0) {
+    return;
+  }
+
+  run('node', ['scripts/publish-drafts.mjs', ...args]);
+}
+
+function collectDraftPublishArgs() {
+  const result = [];
+
+  for (let index = 2; index < process.argv.length; index += 1) {
+    const value = process.argv[index];
+
+    if (value === '--all-drafts') {
+      result.push('--all');
+      continue;
+    }
+
+    if (value === '--keep-draft') {
+      result.push(value);
+      continue;
+    }
+
+    if (value === '--draft') {
+      const nextValue = process.argv[index + 1];
+      if (!nextValue) {
+        throw new Error('Missing value after --draft');
+      }
+
+      result.push('--file', nextValue);
+      index += 1;
+    }
+  }
+
+  return result;
 }
 
 function readCliValue(flag) {

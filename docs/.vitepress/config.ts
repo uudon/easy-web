@@ -12,7 +12,7 @@ export default defineConfig({
     ['meta', { name: 'theme-color', content: '#0f172a' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: '施行的个人日记' }],
-    ['meta', { property: 'og:description', content: '围绕 AI、编程、算法、架构和项目管理持续记录。' }]
+    ['meta', { property: 'og:description', content: '围绕 AI、编程、算法、架构、项目管理和思考持续记录。' }]
   ],
   locales: {
     root: {
@@ -28,6 +28,7 @@ export default defineConfig({
           { text: '算法', link: '/zh-cn/topics/algorithms/' },
           { text: '架构', link: '/zh-cn/topics/architecture/' },
           { text: '项目管理', link: '/zh-cn/topics/project-management/' },
+          { text: '思考', link: '/zh-cn/topics/thinking/' },
           { text: '用户故事', link: '/zh-cn/stories/' },
           { text: '附录', link: '/zh-cn/appendix/' }
         ],
@@ -65,6 +66,7 @@ export default defineConfig({
                 { text: '算法', link: '/zh-cn/topics/algorithms/' },
                 { text: '架构', link: '/zh-cn/topics/architecture/' },
                 { text: '项目管理', link: '/zh-cn/topics/project-management/' },
+                { text: '思考', link: '/zh-cn/topics/thinking/' },
                 { text: '用户故事', link: '/zh-cn/stories/' },
                 { text: '附录', link: '/zh-cn/appendix/' }
               ]
@@ -98,6 +100,7 @@ export default defineConfig({
           { text: 'Algorithms', link: '/en/topics/algorithms/' },
           { text: 'Architecture', link: '/en/topics/architecture/' },
           { text: 'Project Management', link: '/en/topics/project-management/' },
+          { text: 'Thinking', link: '/en/topics/thinking/' },
           { text: 'Stories', link: '/en/stories/' },
           { text: 'Appendix', link: '/en/appendix/' }
         ],
@@ -135,6 +138,7 @@ export default defineConfig({
                 { text: 'Algorithms', link: '/en/topics/algorithms/' },
                 { text: 'Architecture', link: '/en/topics/architecture/' },
                 { text: 'Project Management', link: '/en/topics/project-management/' },
+                { text: 'Thinking', link: '/en/topics/thinking/' },
                 { text: 'Stories', link: '/en/stories/' },
                 { text: 'Appendix', link: '/en/appendix/' }
               ]

@@ -8,6 +8,8 @@
     "dev": "vitepress dev docs --host 0.0.0.0",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs --host 0.0.0.0",
+    "test": "node --test",
+    "drafts:publish": "node scripts/publish-drafts.mjs",
     "sync:content": "node scripts/sync-content.mjs",
     "publish": "node scripts/publish-site.mjs"
   },

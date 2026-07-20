@@ -13,6 +13,7 @@ const topicLabels = {
   algorithms: '算法',
   architecture: '架构',
   'project-management': '项目管理',
+  thinking: '思考',
 };
 
 const markerPairs = {

@@ -148,6 +148,11 @@ features:
     <h2>精选阅读</h2>
 <!-- AUTO_HOME_FEATURED:START -->
 <div class="journal-grid journal-grid--featured">
+  <a class="journal-link-card" href="/zh-cn/topics/thinking/technological-change-and-social-reconstruction">
+    <span class="journal-link-card__meta">思考</span>
+    <strong>技术变革会导致人类社会的重构</strong>
+    <p>技术变革几乎从来不只是“换一种工具”，而是会进一步改变社会的组织方式、权力结构、职业分工和人的生活观念。</p>
+  </a>
   <a class="journal-link-card" href="/zh-cn/topics/project-management/project-scope-management">
     <span class="journal-link-card__meta">项目管理</span>
     <strong>什么是范围管理？</strong>
@@ -172,11 +177,6 @@ features:
     <span class="journal-link-card__meta">算法</span>
     <strong>二分查找：真正难的不是模板，而是边界和单调性</strong>
     <p>很多人学二分时，第一反应都是背模板。</p>
-  </a>
-  <a class="journal-link-card" href="/zh-cn/topics/algorithms/build-complexity-intuition-first">
-    <span class="journal-link-card__meta">算法</span>
-    <strong>刷题之前，我更想先建立复杂度直觉</strong>
-    <p>很多人刷题时最难受的瞬间，不是“不会写”，而是：</p>
   </a>
 </div>
 <!-- AUTO_HOME_FEATURED:END -->
