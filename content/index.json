@@ -1,0 +1,407 @@
+[
+  {
+    "locale": "zh-cn",
+    "category": "thinking",
+    "slug": "technological-change-and-social-reconstruction",
+    "title": "技术变革会导致人类社会的重构",
+    "summary": "技术变革几乎从来不只是“换一种工具”，而是会进一步改变社会的组织方式、权力结构、职业分工和人的生活观念。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/thinking/technological-change-and-social-reconstruction"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "project-management",
+    "slug": "project-scope-management",
+    "title": "什么是范围管理？",
+    "summary": "PMP里的范围管理，一句话讲就是： 先把项目“要做什么、不做什么”说清楚，再控制整个项目不要乱加、乱改、乱跑偏。 很多项目失败，不是因为技术做不出来，而是因为一开始范围没说清楚，过程中又不断加需求，最后时间、成本、质量全部失控。",
+    "date": "2026-05-08",
+    "originalPath": "/zh-cn/topics/project-management/project-scope-management"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "ai",
+    "slug": "karpathy-inspired-claude-code-guidelines",
+    "title": "我开始重新理解 AI 编程：不是让 AI 多写代码，而是让 AI 少犯错",
+    "summary": "最近我看到一个很有意思的项目： andrejkarpathyskills。",
+    "date": "2026-05-08",
+    "originalPath": "/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "review-template-for-algorithms",
+    "title": "Algorithm review template: turn “I solved it once” into “I own the method”",
+    "summary": "After each problem, record:",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/review-template-for-algorithms"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "roadmap",
+    "title": "Algorithm study roadmap: from intuition to a method library",
+    "summary": "The right roadmap is not just difficulty progression. It is capability progression.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/roadmap"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "backtracking-is-constrained-search",
+    "title": "Backtracking is constrained search, not random brute force",
+    "summary": "Backtracking becomes stable when three things are clear:",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/backtracking-is-constrained-search"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "build-complexity-intuition-first",
+    "title": "Before solving more problems, build complexity intuition first",
+    "summary": "Complexity intuition is the ability to look at an idea and quickly ask:",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/build-complexity-intuition-first"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "binary-search-boundary-and-monotonicity",
+    "title": "Binary search: the real challenge is monotonicity and boundary design",
+    "summary": "Binary search is not mainly about a loop template.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/binary-search-boundary-and-monotonicity"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "graph-problems-need-clear-modeling",
+    "title": "Graph problems become much easier once the model is explicit",
+    "summary": "Graph problems feel messy when the model is vague.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/graph-problems-need-clear-modeling"
+  },
+  {
+    "locale": "en",
+    "category": "project-management",
+    "slug": "how-i-push-a-project-forward",
+    "title": "How I make a project actually move forward",
+    "summary": "Projects often stall not because people are idle, but because the work is not split clearly enough.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/project-management/how-i-push-a-project-forward"
+  },
+  {
+    "locale": "en",
+    "category": "programming",
+    "slug": "how-i-structure-a-small-project",
+    "title": "How I structure a small project so it does not become messy too quickly",
+    "summary": "Small projects often become chaotic not because they are large, but because they start without boundaries.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/programming/how-i-structure-a-small-project"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "dp-is-about-choices",
+    "title": "Many DP problems are really about choices",
+    "summary": "A large share of DP problems are structured around comparing choices under a constrained state.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/dp-is-about-choices"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "monotonic-stack-pattern",
+    "title": "Monotonic stack: why so many “next greater element” problems collapse into one pattern",
+    "summary": "Monotonic stacks are powerful when you need the first larger or smaller element to the left or right, without rescanning for every position.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/monotonic-stack-pattern"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "problem-classification-is-pattern-recognition",
+    "title": "Problem classification is pattern recognition, not label memorization",
+    "summary": "Useful classification is not about saying “this is a binary search problem”. It is about seeing the structural signal early enough to choose the right first direction.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/problem-classification-is-pattern-recognition"
+  },
+  {
+    "locale": "en",
+    "category": "ai",
+    "slug": "build-your-ai-workflow",
+    "title": "Put AI into the workflow instead of leaving it at the tool-demo stage",
+    "summary": "The real value of AI starts when it becomes a stable part of the work loop.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/ai/build-your-ai-workflow"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "sliding-window-pattern",
+    "title": "Sliding window: when interval problems do not need full recomputation",
+    "summary": "Sliding window is valuable when a continuous interval can be maintained incrementally instead of recomputed from scratch.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/sliding-window-pattern"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "dp-starts-from-state-definition",
+    "title": "Start DP from state definition, not from formulas",
+    "summary": "The safest starting point for DP is a plain sentence:",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/dp-starts-from-state-definition"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "how-to-learn-algorithms-with-real-feedback",
+    "title": "The real risk in algorithm study is not difficulty, but lack of feedback loops",
+    "summary": "Many people do not struggle because they are incapable. They struggle because every solved problem disappears from memory too quickly.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/how-to-learn-algorithms-with-real-feedback"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "tree-problems-need-recursion-semantics",
+    "title": "Tree problems depend more on recursion semantics than traversal names",
+    "summary": "Tree problems become clearer once you can say:",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/tree-problems-need-recursion-semantics"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "two-pointers-pattern",
+    "title": "Two pointers: when to think in terms of narrowing from both ends",
+    "summary": "Two pointers are useful when moving one boundary can eliminate a large set of impossible combinations.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/two-pointers-pattern"
+  },
+  {
+    "locale": "en",
+    "category": "architecture",
+    "slug": "when-architecture-starts-to-matter",
+    "title": "When architecture starts to matter",
+    "summary": "Architecture matters when:",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/architecture/when-architecture-starts-to-matter"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "from-memoization-to-dp-table",
+    "title": "When to move from memoization to a DP table",
+    "summary": "Memoization is often the easier bridge when you are still understanding the recursive structure.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/from-memoization-to-dp-table"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "why-dp-feels-hard",
+    "title": "Why dynamic programming so often feels like “I understand it when I read it, but I still cannot solve it”",
+    "summary": "DP often feels slippery because people memorize formulas before they understand state meaning and transition completeness.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/why-dp-feels-hard"
+  },
+  {
+    "locale": "en",
+    "category": "algorithms",
+    "slug": "linked-list-pointer-discipline",
+    "title": "Why linked list problems fall apart the moment pointer updates lose discipline",
+    "summary": "Linked list problems often fail because relationships are modified before the next safe reference is preserved.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/linked-list-pointer-discipline"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "dp-is-about-choices",
+    "title": "为什么很多动态规划题其实是在处理“选择”",
+    "summary": "很多人把动态规划理解成“列公式”，但我更愿意把它理解成：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/dp-is-about-choices"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "binary-search-boundary-and-monotonicity",
+    "title": "二分查找：真正难的不是模板，而是边界和单调性",
+    "summary": "很多人学二分时，第一反应都是背模板。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/binary-search-boundary-and-monotonicity"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "from-memoization-to-dp-table",
+    "title": "什么时候该从记忆化搜索走向动态规划表",
+    "summary": "很多人做动态规划时会犹豫：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/from-memoization-to-dp-table"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "build-complexity-intuition-first",
+    "title": "刷题之前，我更想先建立复杂度直觉",
+    "summary": "很多人刷题时最难受的瞬间，不是“不会写”，而是：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/build-complexity-intuition-first"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "why-dp-feels-hard",
+    "title": "动态规划为什么总让人感觉“会看不会做”",
+    "summary": "动态规划是很多人算法学习里的分水岭。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/why-dp-feels-hard"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "monotonic-stack-pattern",
+    "title": "单调栈：为什么很多“找下一个更大元素”都能统一处理",
+    "summary": "单调栈第一次接触时常让人觉得有点“技巧化”，但它其实解决的是一类很稳定的问题：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/monotonic-stack-pattern"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "two-pointers-pattern",
+    "title": "双指针：什么时候该想到“从两边逼近”",
+    "summary": "双指针看起来很常见，但很多人真正做题时并不会主动想到它。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/two-pointers-pattern"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "backtracking-is-constrained-search",
+    "title": "回溯：不是暴力乱搜，而是有约束的枚举",
+    "summary": "回溯最容易被误解成“暴力搜索”。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/backtracking-is-constrained-search"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "graph-problems-need-clear-modeling",
+    "title": "图题为什么经常做着做着就失去方向",
+    "summary": "图题最容易让人有一种感觉：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/graph-problems-need-clear-modeling"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "dp-starts-from-state-definition",
+    "title": "学动态规划，先别急着背转移方程",
+    "summary": "很多人一学动态规划，就想先把方程背下来。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/dp-starts-from-state-definition"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "how-to-learn-algorithms-with-real-feedback",
+    "title": "学算法最怕的不是难，而是没有反馈闭环",
+    "summary": "很多人学算法并不是输在“不会”，而是输在“没有形成可持续反馈”。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/how-to-learn-algorithms-with-real-feedback"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "programming",
+    "slug": "how-i-structure-a-small-project",
+    "title": "我怎么给一个小项目搭结构，避免越写越乱",
+    "summary": "小项目最容易被低估。 很多人觉得“小项目先写起来，后面再整理”，结果往往是后面根本整理不动。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/programming/how-i-structure-a-small-project"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "project-management",
+    "slug": "how-i-push-a-project-forward",
+    "title": "我怎么让一个项目真的往前走",
+    "summary": "很多项目停住，不是因为没有人在做，而是因为每个人都在做一些“看起来很忙，但没有推动主线”的事情。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/project-management/how-i-push-a-project-forward"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "ai",
+    "slug": "build-your-ai-workflow",
+    "title": "把 AI 真正放进工作流，而不是停留在工具试玩",
+    "summary": "很多人第一次接触 AI 时，最容易掉进一个误区：把 AI 当成一个“随手问一问”的工具，而不是一个工作流程里的稳定节点。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/ai/build-your-ai-workflow"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "architecture",
+    "slug": "when-architecture-starts-to-matter",
+    "title": "架构什么时候开始重要",
+    "summary": "很多人以为架构是“大系统”的事情。 但实际上，只要你打算让一个项目持续存在，架构就已经开始影响成本了。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/architecture/when-architecture-starts-to-matter"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "tree-problems-need-recursion-semantics",
+    "title": "树题的关键不是遍历顺序，而是递归语义",
+    "summary": "很多人一学树题，就先记前序、中序、后序。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/tree-problems-need-recursion-semantics"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "sliding-window-pattern",
+    "title": "滑动窗口：什么时候区间问题可以不用重算",
+    "summary": "滑动窗口和双指针经常一起出现，但它解决的问题更具体：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/sliding-window-pattern"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "roadmap",
+    "title": "算法刷题路线图：从建立直觉到形成方法库",
+    "summary": "这页不是题单，而是一条更适合长期学习的路线图。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/roadmap"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "review-template-for-algorithms",
+    "title": "算法复盘模板：把“做过”变成“掌握”",
+    "summary": "很多人刷题的问题不是刷得少，而是刷完之后什么都没留下。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/review-template-for-algorithms"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "linked-list-pointer-discipline",
+    "title": "链表题为什么总让人一改指针就乱",
+    "summary": "链表题的难点经常不在思路，而在指针纪律。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/linked-list-pointer-discipline"
+  },
+  {
+    "locale": "zh-cn",
+    "category": "algorithms",
+    "slug": "problem-classification-is-pattern-recognition",
+    "title": "题型分类不是背标签，而是训练识别能力",
+    "summary": "很多人一说题型分类，第一反应是：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/topics/algorithms/problem-classification-is-pattern-recognition"
+  }
+]

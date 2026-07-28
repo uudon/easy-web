@@ -1,128 +1,94 @@
 # easy-web
 
-This repository is a staged reimplementation based on the `easy-vibe` route:
+石行的双语个人网站。网站已从 VitePress 迁移到 Next.js App Router，并采用：
 
-- VitePress as the content framework
-- `/docs/.vitepress` for site config and theme overrides
-- `/docs/zh-cn` as the primary Chinese site
-- Docker + Nginx for Tencent Cloud deployment
+- Vercel 托管与自动部署
+- Cloudflare DNS、TLS 和边缘防护
+- GitHub App 作为内容写入身份
+- Git 仓库中的 Markdown 作为内容源
 
-## Local development
+旧版 `docs/` 内容暂时保留，便于核对和回滚；运行时只读取 `content/`。
+
+## 本地开发
+
+需要 Node.js 20.9 或更高版本：
 
 ```bash
-npm install
+npm ci
+cp .env.example .env.local
 npm run dev
 ```
 
-## Production build
+访问 `http://localhost:3000/zh-cn`。管理入口位于 `/admin`。
+
+## 内容结构
+
+```text
+content/
+├── posts/
+│   ├── zh-cn/
+│   └── en/
+├── pages/
+├── index.json
+├── pages.json
+└── redirects.json
+```
+
+重新从旧 VitePress 内容生成新内容：
 
 ```bash
+npm run content:migrate
+```
+
+迁移脚本会保留旧链接映射。不要在生产内容已经通过管理台修改后再次无审查运行迁移，因为它会以旧 `docs/` 为输入重新生成索引。
+
+## GitHub App
+
+创建一个仅安装到 `uudon/easy-web` 的 GitHub App，并授予：
+
+- Repository contents: Read and write
+- Metadata: Read-only
+
+不需要 Webhook。生成 Private Key 后，将 `.env.example` 中的服务端变量配置到 Vercel；Private Key 绝不能使用 `NEXT_PUBLIC_` 前缀，也不能提交到仓库。
+
+生成后台密码哈希：
+
+```bash
+npm run admin:hash -- "your-long-password"
+```
+
+预览环境保持 `ENABLE_CONTENT_WRITES=false`。仅在生产域名、GitHub App 权限和回滚流程验证后，把生产环境设为 `true`。
+
+## 验证
+
+```bash
+npm run lint
+npm run typecheck
+npm test
+npm run test:coverage
 npm run build
+npm run test:e2e
+```
+
+## 部署
+
+Vercel 项目使用默认 Next.js 配置即可。将 GitHub 仓库连接到 Vercel，先部署迁移分支作为 Preview；验收完成后再合并到 `main` 并配置生产环境变量。
+
+Cloudflare 中建议先使用 DNS-only：
+
+1. 根域名使用 Vercel 提供的 A 记录。
+2. `www` 使用 Vercel 提供的 CNAME。
+3. 在 Vercel 确认证书和域名状态正常。
+4. 验证 HTTP、HTTPS、旧链接跳转和 `/admin` 后，再按需打开 Cloudflare 代理。
+
+DNS 切换前不要删除原腾讯云部署；它是迁移期间的回滚入口。
+
+## 容器回退
+
+Vercel 是主部署方式。仓库仍提供基于 Next.js standalone 输出的容器配置，供本地或故障回退使用：
+
+```bash
 docker compose up -d --build
 ```
 
-## Deploy to Tencent Cloud
-
-The production server uses an existing nginx reverse proxy on port `80`.
-To update the site from this machine in one command:
-
-```bash
-bash scripts/deploy-tencent.sh
-```
-
-## Content workflow
-
-When you add or update a Chinese article under `docs/zh-cn/topics/*/*.md`, the site can now refresh article references automatically:
-
-```bash
-npm run sync:content
-```
-
-This updates:
-
-- The Chinese homepage featured reading cards
-- Each Chinese topic landing page's recommended article list
-
-## Draft workflow
-
-Put draft articles under `drafts/zh-cn/<topic>/`.
-
-Supported topics:
-
-- `ai`
-- `programming`
-- `algorithms`
-- `architecture`
-- `project-management`
-- `thinking`
-
-Example draft:
-
-```md
----
-title: 什么是范围管理
-slug: scope-management
----
-
-# 什么是范围管理
-
-正文内容...
-```
-
-Publish one draft into the formal article directory and refresh article references:
-
-```bash
-npm run drafts:publish -- --file drafts/zh-cn/ai/my-new-article.md
-```
-
-Publish every draft at once:
-
-```bash
-npm run drafts:publish -- --all
-```
-
-The publish step will:
-
-- copy the article into `docs/zh-cn/topics/<topic>/`
-- use the filename or frontmatter `slug` as the final link
-- use the H1 or frontmatter `title` as the final article title
-- move the original draft into `drafts/archive/`
-- refresh the Chinese homepage and topic article lists
-
-To run the full one-click flow from content sync to deployment:
-
-```bash
-npm run publish
-```
-
-To publish draft articles and deploy in one command:
-
-```bash
-npm run publish -- --all-drafts
-```
-
-Or deploy just one draft:
-
-```bash
-npm run publish -- --draft drafts/zh-cn/ai/my-new-article.md
-```
-
-Optional custom commit message:
-
-```bash
-npm run publish -- --message "feat: publish new AI article"
-```
-
-Defaults:
-
-- Host: `ubuntu@43.136.56.11`
-- SSH key: auto-detected from `/Volumes/macOS/documents/密钥/mac.pem` or `/Volumes/macOS/documents/key/codex.pem`
-- Remote app dir: `/home/ubuntu/apps/easy-web-static`
-
-You can override them with `REMOTE_HOST`, `SSH_KEY_PATH`, and `REMOTE_APP_DIR`.
-
-## Current phased deliverables
-
-- Phase 1: VitePress skeleton, bilingual routing, branded homepage
-- Phase 2: Navigation, landing-page sections, deployment docs, FAQ
-- Phase 3: Docker + Nginx static deployment for Tencent Cloud Ubuntu 22.04
+容器监听 `http://localhost:3000`。

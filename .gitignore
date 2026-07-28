@@ -3,4 +3,12 @@ dist
 .DS_Store
 docs/.vitepress/dist
 *.log
-
+.next
+coverage
+playwright-report
+test-results
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+.vercel

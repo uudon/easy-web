@@ -1,0 +1,23 @@
+---
+title: "编程"
+summary: "编程这一栏更关注工程实践，而不是单纯的语法知识。"
+date: "2026-07-20"
+locale: "zh-cn"
+pagePath: "topics/programming"
+originalPath: "/zh-cn/topics/programming/"
+---
+
+编程这一栏更关注工程实践，而不是单纯的语法知识。
+
+## 这个专栏会写什么
+
+- 项目结构怎么搭
+- 页面、状态、接口怎么拆
+- 调试和排错时怎么快速定位问题
+- 为什么有些项目越写越乱，有些项目却能越写越稳
+
+## 推荐先读
+
+<!-- AUTO_TOPIC_ARTICLES:START -->
+1. [我怎么给一个小项目搭结构，避免越写越乱](/zh-cn/topics/programming/how-i-structure-a-small-project)
+<!-- AUTO_TOPIC_ARTICLES:END -->

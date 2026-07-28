@@ -1,0 +1,452 @@
+[
+  {
+    "source": "/zh-cn/topics/thinking/technological-change-and-social-reconstruction",
+    "destination": "/zh-cn/blog/technological-change-and-social-reconstruction",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/thinking/technological-change-and-social-reconstruction.html",
+    "destination": "/zh-cn/blog/technological-change-and-social-reconstruction",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/project-management/project-scope-management",
+    "destination": "/zh-cn/blog/project-scope-management",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/project-management/project-scope-management.html",
+    "destination": "/zh-cn/blog/project-scope-management",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines",
+    "destination": "/zh-cn/blog/karpathy-inspired-claude-code-guidelines",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/ai/Karpathy-Inspired-Claude-Code-Guidelines.html",
+    "destination": "/zh-cn/blog/karpathy-inspired-claude-code-guidelines",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/review-template-for-algorithms",
+    "destination": "/en/blog/review-template-for-algorithms",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/review-template-for-algorithms.html",
+    "destination": "/en/blog/review-template-for-algorithms",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/roadmap",
+    "destination": "/en/blog/roadmap",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/roadmap.html",
+    "destination": "/en/blog/roadmap",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/backtracking-is-constrained-search",
+    "destination": "/en/blog/backtracking-is-constrained-search",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/backtracking-is-constrained-search.html",
+    "destination": "/en/blog/backtracking-is-constrained-search",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/build-complexity-intuition-first",
+    "destination": "/en/blog/build-complexity-intuition-first",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/build-complexity-intuition-first.html",
+    "destination": "/en/blog/build-complexity-intuition-first",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/binary-search-boundary-and-monotonicity",
+    "destination": "/en/blog/binary-search-boundary-and-monotonicity",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/binary-search-boundary-and-monotonicity.html",
+    "destination": "/en/blog/binary-search-boundary-and-monotonicity",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/graph-problems-need-clear-modeling",
+    "destination": "/en/blog/graph-problems-need-clear-modeling",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/graph-problems-need-clear-modeling.html",
+    "destination": "/en/blog/graph-problems-need-clear-modeling",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/project-management/how-i-push-a-project-forward",
+    "destination": "/en/blog/how-i-push-a-project-forward",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/project-management/how-i-push-a-project-forward.html",
+    "destination": "/en/blog/how-i-push-a-project-forward",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/programming/how-i-structure-a-small-project",
+    "destination": "/en/blog/how-i-structure-a-small-project",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/programming/how-i-structure-a-small-project.html",
+    "destination": "/en/blog/how-i-structure-a-small-project",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/dp-is-about-choices",
+    "destination": "/en/blog/dp-is-about-choices",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/dp-is-about-choices.html",
+    "destination": "/en/blog/dp-is-about-choices",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/monotonic-stack-pattern",
+    "destination": "/en/blog/monotonic-stack-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/monotonic-stack-pattern.html",
+    "destination": "/en/blog/monotonic-stack-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/problem-classification-is-pattern-recognition",
+    "destination": "/en/blog/problem-classification-is-pattern-recognition",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/problem-classification-is-pattern-recognition.html",
+    "destination": "/en/blog/problem-classification-is-pattern-recognition",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/ai/build-your-ai-workflow",
+    "destination": "/en/blog/build-your-ai-workflow",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/ai/build-your-ai-workflow.html",
+    "destination": "/en/blog/build-your-ai-workflow",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/sliding-window-pattern",
+    "destination": "/en/blog/sliding-window-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/sliding-window-pattern.html",
+    "destination": "/en/blog/sliding-window-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/dp-starts-from-state-definition",
+    "destination": "/en/blog/dp-starts-from-state-definition",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/dp-starts-from-state-definition.html",
+    "destination": "/en/blog/dp-starts-from-state-definition",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/how-to-learn-algorithms-with-real-feedback",
+    "destination": "/en/blog/how-to-learn-algorithms-with-real-feedback",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/how-to-learn-algorithms-with-real-feedback.html",
+    "destination": "/en/blog/how-to-learn-algorithms-with-real-feedback",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/tree-problems-need-recursion-semantics",
+    "destination": "/en/blog/tree-problems-need-recursion-semantics",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/tree-problems-need-recursion-semantics.html",
+    "destination": "/en/blog/tree-problems-need-recursion-semantics",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/two-pointers-pattern",
+    "destination": "/en/blog/two-pointers-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/two-pointers-pattern.html",
+    "destination": "/en/blog/two-pointers-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/architecture/when-architecture-starts-to-matter",
+    "destination": "/en/blog/when-architecture-starts-to-matter",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/architecture/when-architecture-starts-to-matter.html",
+    "destination": "/en/blog/when-architecture-starts-to-matter",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/from-memoization-to-dp-table",
+    "destination": "/en/blog/from-memoization-to-dp-table",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/from-memoization-to-dp-table.html",
+    "destination": "/en/blog/from-memoization-to-dp-table",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/why-dp-feels-hard",
+    "destination": "/en/blog/why-dp-feels-hard",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/why-dp-feels-hard.html",
+    "destination": "/en/blog/why-dp-feels-hard",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/linked-list-pointer-discipline",
+    "destination": "/en/blog/linked-list-pointer-discipline",
+    "permanent": true
+  },
+  {
+    "source": "/en/topics/algorithms/linked-list-pointer-discipline.html",
+    "destination": "/en/blog/linked-list-pointer-discipline",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/dp-is-about-choices",
+    "destination": "/zh-cn/blog/dp-is-about-choices",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/dp-is-about-choices.html",
+    "destination": "/zh-cn/blog/dp-is-about-choices",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/binary-search-boundary-and-monotonicity",
+    "destination": "/zh-cn/blog/binary-search-boundary-and-monotonicity",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/binary-search-boundary-and-monotonicity.html",
+    "destination": "/zh-cn/blog/binary-search-boundary-and-monotonicity",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/from-memoization-to-dp-table",
+    "destination": "/zh-cn/blog/from-memoization-to-dp-table",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/from-memoization-to-dp-table.html",
+    "destination": "/zh-cn/blog/from-memoization-to-dp-table",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/build-complexity-intuition-first",
+    "destination": "/zh-cn/blog/build-complexity-intuition-first",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/build-complexity-intuition-first.html",
+    "destination": "/zh-cn/blog/build-complexity-intuition-first",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/why-dp-feels-hard",
+    "destination": "/zh-cn/blog/why-dp-feels-hard",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/why-dp-feels-hard.html",
+    "destination": "/zh-cn/blog/why-dp-feels-hard",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/monotonic-stack-pattern",
+    "destination": "/zh-cn/blog/monotonic-stack-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/monotonic-stack-pattern.html",
+    "destination": "/zh-cn/blog/monotonic-stack-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/two-pointers-pattern",
+    "destination": "/zh-cn/blog/two-pointers-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/two-pointers-pattern.html",
+    "destination": "/zh-cn/blog/two-pointers-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/backtracking-is-constrained-search",
+    "destination": "/zh-cn/blog/backtracking-is-constrained-search",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/backtracking-is-constrained-search.html",
+    "destination": "/zh-cn/blog/backtracking-is-constrained-search",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/graph-problems-need-clear-modeling",
+    "destination": "/zh-cn/blog/graph-problems-need-clear-modeling",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/graph-problems-need-clear-modeling.html",
+    "destination": "/zh-cn/blog/graph-problems-need-clear-modeling",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/dp-starts-from-state-definition",
+    "destination": "/zh-cn/blog/dp-starts-from-state-definition",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/dp-starts-from-state-definition.html",
+    "destination": "/zh-cn/blog/dp-starts-from-state-definition",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/how-to-learn-algorithms-with-real-feedback",
+    "destination": "/zh-cn/blog/how-to-learn-algorithms-with-real-feedback",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/how-to-learn-algorithms-with-real-feedback.html",
+    "destination": "/zh-cn/blog/how-to-learn-algorithms-with-real-feedback",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/programming/how-i-structure-a-small-project",
+    "destination": "/zh-cn/blog/how-i-structure-a-small-project",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/programming/how-i-structure-a-small-project.html",
+    "destination": "/zh-cn/blog/how-i-structure-a-small-project",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/project-management/how-i-push-a-project-forward",
+    "destination": "/zh-cn/blog/how-i-push-a-project-forward",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/project-management/how-i-push-a-project-forward.html",
+    "destination": "/zh-cn/blog/how-i-push-a-project-forward",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/ai/build-your-ai-workflow",
+    "destination": "/zh-cn/blog/build-your-ai-workflow",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/ai/build-your-ai-workflow.html",
+    "destination": "/zh-cn/blog/build-your-ai-workflow",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/architecture/when-architecture-starts-to-matter",
+    "destination": "/zh-cn/blog/when-architecture-starts-to-matter",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/architecture/when-architecture-starts-to-matter.html",
+    "destination": "/zh-cn/blog/when-architecture-starts-to-matter",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/tree-problems-need-recursion-semantics",
+    "destination": "/zh-cn/blog/tree-problems-need-recursion-semantics",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/tree-problems-need-recursion-semantics.html",
+    "destination": "/zh-cn/blog/tree-problems-need-recursion-semantics",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/sliding-window-pattern",
+    "destination": "/zh-cn/blog/sliding-window-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/sliding-window-pattern.html",
+    "destination": "/zh-cn/blog/sliding-window-pattern",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/roadmap",
+    "destination": "/zh-cn/blog/roadmap",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/roadmap.html",
+    "destination": "/zh-cn/blog/roadmap",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/review-template-for-algorithms",
+    "destination": "/zh-cn/blog/review-template-for-algorithms",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/review-template-for-algorithms.html",
+    "destination": "/zh-cn/blog/review-template-for-algorithms",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/linked-list-pointer-discipline",
+    "destination": "/zh-cn/blog/linked-list-pointer-discipline",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/linked-list-pointer-discipline.html",
+    "destination": "/zh-cn/blog/linked-list-pointer-discipline",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/problem-classification-is-pattern-recognition",
+    "destination": "/zh-cn/blog/problem-classification-is-pattern-recognition",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/algorithms/problem-classification-is-pattern-recognition.html",
+    "destination": "/zh-cn/blog/problem-classification-is-pattern-recognition",
+    "permanent": true
+  }
+]

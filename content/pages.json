@@ -1,0 +1,322 @@
+[
+  {
+    "locale": "en",
+    "pagePath": "",
+    "title": "index",
+    "summary": "",
+    "date": "2026-04-23",
+    "originalPath": "/en/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "about",
+    "title": "About",
+    "summary": "I am Shixing.",
+    "date": "2026-04-23",
+    "originalPath": "/en/about"
+  },
+  {
+    "locale": "en",
+    "pagePath": "appendix",
+    "title": "Appendix",
+    "summary": "This section is for practical reference material that people may want to revisit often.",
+    "date": "2026-04-23",
+    "originalPath": "/en/appendix/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "deployment/tencent-cloud",
+    "title": "Tencent Cloud Ubuntu 22.04 Deployment",
+    "summary": "This site is deployed as a static VitePress build served by Docker and nginx.",
+    "date": "2026-04-23",
+    "originalPath": "/en/deployment/tencent-cloud"
+  },
+  {
+    "locale": "en",
+    "pagePath": "faq",
+    "title": "FAQ",
+    "summary": "Because the real need here is not a custom framework. It is a stable content system with clean navigation, static delivery, and low maintenance cost.",
+    "date": "2026-04-23",
+    "originalPath": "/en/faq"
+  },
+  {
+    "locale": "en",
+    "pagePath": "getting-started",
+    "title": "Getting Started",
+    "summary": "This project follows the same implementation route as the original EasyVibe setup, but turns it into a personal knowledge site.",
+    "date": "2026-04-23",
+    "originalPath": "/en/getting-started"
+  },
+  {
+    "locale": "en",
+    "pagePath": "guides/stage-1",
+    "title": "Stage 1: Site Skeleton",
+    "summary": "This phase sets up the VitePress foundation, the base navigation, and the initial delivery path.",
+    "date": "2026-04-23",
+    "originalPath": "/en/guides/stage-1"
+  },
+  {
+    "locale": "en",
+    "pagePath": "guides/stage-2",
+    "title": "Stage 2: Content Structure",
+    "summary": "This phase replaces placeholder structure with real topic sections, topic pages, and initial article content.",
+    "date": "2026-04-23",
+    "originalPath": "/en/guides/stage-2"
+  },
+  {
+    "locale": "en",
+    "pagePath": "guides/stage-3",
+    "title": "Stage 3: Launch and Growth",
+    "summary": "This phase focuses on deployment, HTTPS, content density, and longterm iteration.",
+    "date": "2026-04-23",
+    "originalPath": "/en/guides/stage-3"
+  },
+  {
+    "locale": "en",
+    "pagePath": "project/phases",
+    "title": "Project Phases",
+    "summary": "VitePress site skeleton homepage multilingual structure deployment scaffolding",
+    "date": "2026-04-23",
+    "originalPath": "/en/project/phases"
+  },
+  {
+    "locale": "en",
+    "pagePath": "stories",
+    "title": "Stories",
+    "summary": "This section is not about dramatic success narratives. It is about concrete progress:",
+    "date": "2026-04-23",
+    "originalPath": "/en/stories/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "topics/ai",
+    "title": "AI",
+    "summary": "This section is about using AI as part of a real workflow, not as a novelty tool.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/ai/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "topics/algorithms",
+    "title": "Algorithms",
+    "summary": "This section is about building a reusable method library, not just collecting solved problems.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/algorithms/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "topics/architecture",
+    "title": "Architecture",
+    "summary": "Architecture is not only about large systems. It starts to matter the moment a project is expected to survive repeated change.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/architecture/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "topics/programming",
+    "title": "Programming",
+    "summary": "Programming here is mostly about engineering practice, not syntax memorization.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/programming/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "topics/project-management",
+    "title": "Project Management",
+    "summary": "This section focuses on how work actually moves forward.",
+    "date": "2026-04-23",
+    "originalPath": "/en/topics/project-management/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "topics/thinking",
+    "title": "Thinking",
+    "summary": "This section is for reflections that do not fit neatly under AI, programming, algorithms, architecture, or project management.",
+    "date": "2026-07-20",
+    "originalPath": "/en/topics/thinking/"
+  },
+  {
+    "locale": "en",
+    "pagePath": "tracks/advanced",
+    "title": "Advanced",
+    "summary": "This stage is for longerterm system thinking.",
+    "date": "2026-04-23",
+    "originalPath": "/en/tracks/advanced"
+  },
+  {
+    "locale": "en",
+    "pagePath": "tracks/foundation",
+    "title": "Foundation",
+    "summary": "This stage turns fragmented knowledge into a working loop.",
+    "date": "2026-04-23",
+    "originalPath": "/en/tracks/foundation"
+  },
+  {
+    "locale": "en",
+    "pagePath": "tracks/intermediate",
+    "title": "Intermediate",
+    "summary": "This stage focuses on shipping projects in a cleaner and more maintainable way.",
+    "date": "2026-04-23",
+    "originalPath": "/en/tracks/intermediate"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "",
+    "title": "架构与项目管理",
+    "summary": "这里不会只放教程摘要，而是把做事过程、技术判断、踩坑记录和长期思考都沉淀下来。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "about",
+    "title": "关于我",
+    "summary": "我是施行。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/about"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "appendix",
+    "title": "附录",
+    "summary": "附录页适合放那些用户会反复查，但不适合放在主教程正文里的内容。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/appendix/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "deployment/tencent-cloud",
+    "title": "腾讯云 Ubuntu 22.04 部署",
+    "summary": "这套站点适合你的服务器现状：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/deployment/tencent-cloud"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "faq",
+    "title": "常见问题",
+    "summary": "因为目标站本身就是文档站路线，直接复用 VitePress 更快、更稳、更容易维护。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/faq"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "getting-started",
+    "title": "快速开始",
+    "summary": "这个项目不是从零自研，而是沿着 easyvibe 的落地路线，重建出一个适合“施行的个人日记”的站点基础设施。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/getting-started"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "guides/stage-1",
+    "title": "阶段一：起站与品牌骨架",
+    "summary": "使用 VitePress 建站 中文站首页完成 多语言结构已建立 顶部导航和侧边栏已接入 静态资源位已预留",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/guides/stage-1"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "guides/stage-2",
+    "title": "阶段二：内容替换与课程结构",
+    "summary": "把原先 EasyVibe 的“学习地图”思路，换成你的课程体系或产品文档体系。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/guides/stage-2"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "guides/stage-3",
+    "title": "阶段三：上线、运维与增长",
+    "summary": "Docker 多阶段构建 Nginx 静态托管 HTTPS 入口准备 适合腾讯云 Ubuntu 22.04",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/guides/stage-3"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "project/phases",
+    "title": "分阶段成果",
+    "summary": "已完成：",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/project/phases"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "stories",
+    "title": "用户故事",
+    "summary": "这一栏对应目标站里的“用户故事”区域，但这里已经替换成更适合个人站点的“成长记录”和“项目复盘”。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/stories/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "topics/ai",
+    "title": "AI",
+    "summary": "AI 这一栏不会把重点放在“哪家模型又更新了”，而是放在一个更实际的问题上：",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/ai/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "topics/algorithms",
+    "title": "算法",
+    "summary": "算法这一栏不会只写答案，更关注“怎么形成自己的方法库”。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/algorithms/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "topics/architecture",
+    "title": "架构",
+    "summary": "架构这一栏关注的不是大词，而是长期维护成本。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/architecture/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "topics/programming",
+    "title": "编程",
+    "summary": "编程这一栏更关注工程实践，而不是单纯的语法知识。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/programming/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "topics/project-management",
+    "title": "项目管理",
+    "summary": "项目管理这一栏不是写流程名词，而是写“怎么让事情真的往前推进”。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/project-management/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "topics/thinking",
+    "title": "思考",
+    "summary": "这里是我对学习的思考，工作的思考，还有一些感悟，我会写下来。",
+    "date": "2026-07-20",
+    "originalPath": "/zh-cn/topics/thinking/"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "tracks/advanced",
+    "title": "高级开发",
+    "summary": "这一阶段面向更复杂的生产环境。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/tracks/advanced"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "tracks/foundation",
+    "title": "零基础入门",
+    "summary": "这一阶段负责把“不会做”变成“能独立完成一条最短链路”。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/tracks/foundation"
+  },
+  {
+    "locale": "zh-cn",
+    "pagePath": "tracks/intermediate",
+    "title": "初中级开发",
+    "summary": "这一阶段把“能做”提升到“能系统化交付”。",
+    "date": "2026-04-23",
+    "originalPath": "/zh-cn/tracks/intermediate"
+  }
+]
