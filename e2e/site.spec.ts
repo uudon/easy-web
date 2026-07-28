@@ -3,6 +3,7 @@ import { expect, test } from '@playwright/test'
 test('Chinese home, archive and article reading flow works', async ({ page }) => {
   await page.goto('/zh-cn')
   await expect(page).toHaveTitle(/施行的个人日记/)
+  await expect(page.locator('html')).toHaveAttribute('lang', 'zh-CN')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('把复杂的事')
 
   await page.getByRole('link', { name: '文章', exact: true }).click()
@@ -24,6 +25,7 @@ test('legacy article URLs permanently redirect to the new route', async ({ page 
 
 test('English locale and migrated pages remain available', async ({ page }) => {
   await page.goto('/en')
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   await expect(page.getByRole('heading', { level: 1 })).toContainText('Think clearly')
   await page.goto('/en/about')
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible()

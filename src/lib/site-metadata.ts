@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 
-import './globals.css'
-
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://tangyingbao.com'
 
-export const metadata: Metadata = {
+export const siteMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: '施行的个人日记',
@@ -32,12 +30,4 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-}
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="zh-CN">
-      <body>{children}</body>
-    </html>
-  )
 }
