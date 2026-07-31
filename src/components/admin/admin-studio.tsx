@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   LogOut,
   PenLine,
+  Library,
 } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
@@ -15,6 +16,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { AdminEditor } from './editor'
 import { AdminOverview } from './overview'
 import { AdminPostsView } from './posts-view'
+import { AdminNovelsView } from './novels-view'
 import type { Draft } from '@/lib/admin-drafts'
 import type { PostSummary } from '@/lib/content'
 import type { FormEvent, ReactNode } from 'react'
@@ -25,7 +27,7 @@ type SessionState = {
   writesEnabled: boolean
 }
 
-type AdminView = 'overview' | 'posts' | 'editor'
+type AdminView = 'overview' | 'posts' | 'editor' | 'novels'
 
 const signedOutSession: SessionState = {
   authenticated: false,
@@ -171,6 +173,9 @@ export function AdminStudio({
           >
             新建文章
           </NavigationLink>
+          <NavigationLink active={view === 'novels'} href="/admin/novels" icon={<Library />}>
+            小说管理
+          </NavigationLink>
         </nav>
         <button
           aria-label="退出登录"
@@ -212,6 +217,12 @@ export function AdminStudio({
           <AdminEditor
             csrfToken={session.csrfToken}
             draftId={draftId ?? 'new'}
+            writesEnabled={session.writesEnabled}
+          />
+        ) : null}
+        {view === 'novels' ? (
+          <AdminNovelsView
+            csrfToken={session.csrfToken}
             writesEnabled={session.writesEnabled}
           />
         ) : null}

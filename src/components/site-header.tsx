@@ -7,6 +7,7 @@ const labels = {
     journal: '施行 / 日记',
     home: '首页',
     writing: '文章',
+    novels: '小说',
     about: '关于',
     language: 'EN',
   },
@@ -14,6 +15,7 @@ const labels = {
     journal: 'SHIXING / JOURNAL',
     home: 'Home',
     writing: 'Writing',
+    novels: null,
     about: 'About',
     language: '中文',
   },
@@ -32,6 +34,7 @@ export function SiteHeader({ locale }: { locale: Locale }) {
       <nav aria-label="Primary navigation">
         <Link href={`/${locale}`}>{copy.home}</Link>
         <Link href={`/${locale}/blog`}>{copy.writing}</Link>
+        {copy.novels ? <Link href="/zh-cn/novels">{copy.novels}</Link> : null}
         <Link href={`/${locale}/about`}>{copy.about}</Link>
         <Link className="language-link" href={`/${alternateLocale}`}>
           {copy.language}

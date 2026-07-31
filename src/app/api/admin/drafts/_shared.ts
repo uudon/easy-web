@@ -7,7 +7,12 @@ import {
   DraftIdentityError,
   DraftNotFoundError,
 } from '@/lib/admin-drafts'
+import {
+  NovelChapterConflictError,
+  NovelNotFoundError,
+} from '@/lib/admin-novels'
 import { isAdminRequest, isValidAdminMutation } from '@/lib/admin-request'
+import { DraftRevisionError } from '@/lib/github-app'
 import { checkRateLimit } from '@/lib/rate-limit'
 
 export function requireAdmin(request: NextRequest) {
@@ -71,6 +76,21 @@ export function handleApiError(error: unknown, operation: string) {
       409,
       'SOURCE_IDENTITY_LOCKED',
       '已发布文章的语言和 Slug 不能直接修改，以免生成重复文章。',
+    )
+  }
+  if (error instanceof NovelNotFoundError) {
+    return apiError(404, 'NOVEL_NOT_FOUND', error.message)
+  }
+  if (error instanceof NovelChapterConflictError) {
+    return apiError(409, 'NOVEL_CONFLICT', error.message, {
+      ...(error.current ? { current: error.current } : {}),
+    })
+  }
+  if (error instanceof DraftRevisionError) {
+    return apiError(
+      409,
+      'REVISION_CONFLICT',
+      '内容已被其他页面更新，请刷新后重试。',
     )
   }
   console.error(`Admin ${operation} failed`, {

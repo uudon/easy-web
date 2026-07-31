@@ -2,7 +2,7 @@ import { generateKeyPairSync } from 'node:crypto'
 import { importPKCS8 } from 'jose'
 import { describe, expect, it } from 'vitest'
 
-import { normalizeGitHubPrivateKey } from './github-app'
+import { normalizeGitHubPrivateKey, parseRepositoryJson } from './github-app'
 
 describe('GitHub App private key normalization', () => {
   const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 })
@@ -21,5 +21,19 @@ describe('GitHub App private key normalization', () => {
     const normalized = normalizeGitHubPrivateKey(escaped)
 
     await expect(importPKCS8(normalized, 'RS256')).resolves.toBeDefined()
+  })
+})
+
+describe('repository JSON parsing', () => {
+  it('fails closed instead of replacing a damaged novel index with an empty one', () => {
+    expect(() => parseRepositoryJson('{bad-json', 'content/novels/index.json')).toThrow(
+      'Repository JSON is invalid: content/novels/index.json',
+    )
+    expect(
+      parseRepositoryJson<{ title: string }>(
+        '{"title":"纸月亮"}',
+        'content/novels/index.json',
+      ),
+    ).toEqual({ title: '纸月亮' })
   })
 })

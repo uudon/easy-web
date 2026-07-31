@@ -6,6 +6,7 @@ import { PostCard } from '@/components/post-card'
 import { SiteShell } from '@/components/site-shell'
 import { contentRepository, isLocale, locales, type Locale } from '@/lib/content'
 import { categoryLabel } from '@/lib/format'
+import { novelRepository } from '@/lib/novels'
 
 type LocalePageProps = {
   params: Promise<{ locale: string }>
@@ -57,6 +58,7 @@ export default async function LocaleHome({ params }: LocalePageProps) {
   const featured = posts[0]
   const recent = posts.slice(1, 7)
   const text = copy[locale]
+  const latestNovel = locale === 'zh-cn' ? novelRepository.getNovels()[0] : null
 
   return (
     <SiteShell locale={locale}>
@@ -102,6 +104,27 @@ export default async function LocaleHome({ params }: LocalePageProps) {
             <PostCard index={index} key={`${post.locale}-${post.slug}`} post={post} />
           ))}
         </section>
+
+        {locale === 'zh-cn' ? (
+          <section className="home-novel-section" aria-labelledby="home-novel-title">
+            <div>
+              <p className="eyebrow">SERIAL FICTION</p>
+              <h2 id="home-novel-title">
+                {latestNovel ? latestNovel.title : '故事，留一处慢慢写。'}
+              </h2>
+            </div>
+            <div>
+              <p>
+                {latestNovel
+                  ? latestNovel.summary
+                  : '连载小说拥有独立的书架与章节目录，不与文章混在一起。'}
+              </p>
+              <Link href={latestNovel ? `/zh-cn/novels/${latestNovel.slug}` : '/zh-cn/novels'}>
+                {latestNovel ? '继续读这部小说' : '前往小说书架'} →
+              </Link>
+            </div>
+          </section>
+        ) : null}
 
         <section className="topic-section">
           <div>

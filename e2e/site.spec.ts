@@ -13,7 +13,7 @@ test('Chinese home, archive and article reading flow works', async ({ page }) =>
   const articleLink = page.locator('.post-card h2 a').first()
   const title = await articleLink.textContent()
   await articleLink.click()
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(title ?? '')
+  await expect(page.locator('.article-header h1')).toHaveText(title ?? '')
   await expect(page.locator('.prose')).toBeVisible()
 })
 
