@@ -12,8 +12,12 @@ export const contentWriteSchema = z.object({
   date: z
     .string()
     .regex(/^\d{4}-\d{2}-\d{2}$/)
-    .refine((value) => !Number.isNaN(new Date(`${value}T00:00:00.000Z`).getTime())),
+    .refine((value) => {
+      const date = new Date(`${value}T00:00:00.000Z`)
+      return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value
+    }),
   body: z.string().min(1).max(500_000),
+  translationKey: z.string().min(1).max(100).regex(routeSegment).optional(),
 })
 
 export type ContentWriteInput = z.infer<typeof contentWriteSchema>
@@ -28,6 +32,9 @@ export function toContentFile(input: ContentWriteInput) {
     `category: ${JSON.stringify(input.category)}`,
     `slug: ${JSON.stringify(input.slug)}`,
     `originalPath: ${JSON.stringify(`/${input.locale}/blog/${input.slug}`)}`,
+    ...(input.translationKey
+      ? [`translationKey: ${JSON.stringify(input.translationKey)}`]
+      : []),
     '---',
     '',
     input.body.trim(),

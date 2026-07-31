@@ -34,4 +34,18 @@ describe('content write validation', () => {
       }),
     ).toThrow()
   })
+
+  it('rejects calendar dates that JavaScript would otherwise normalize', () => {
+    expect(() =>
+      contentWriteSchema.parse({
+        locale: 'zh-cn',
+        slug: 'invalid-date',
+        title: '日期错误',
+        summary: '',
+        category: 'ai',
+        date: '2026-02-30',
+        body: 'text',
+      }),
+    ).toThrow()
+  })
 })

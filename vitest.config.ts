@@ -8,9 +8,12 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: [
+        'src/lib/admin-assets.ts',
         'src/lib/admin-auth.ts',
+        'src/lib/admin-posts.ts',
         'src/lib/content.ts',
         'src/lib/content-write.ts',
+        'src/lib/markdown-stats.ts',
         'src/lib/rate-limit.ts'
       ],
       reporter: ['text', 'json-summary'],

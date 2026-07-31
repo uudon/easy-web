@@ -13,6 +13,8 @@ export type PostSummary = {
   category: string
   slug: string
   originalPath: string
+  translationKey?: string
+  updatedAt?: string
 }
 
 export type PageSummary = {
@@ -123,7 +125,11 @@ function isValidPostSummary(value: Partial<PostSummary>): value is PostSummary {
       safeSegmentPattern.test(value.category) &&
       typeof value.slug === 'string' &&
       safeSegmentPattern.test(value.slug) &&
-      typeof value.originalPath === 'string',
+      typeof value.originalPath === 'string' &&
+      (value.translationKey === undefined ||
+        (typeof value.translationKey === 'string' &&
+          safeSegmentPattern.test(value.translationKey))) &&
+      (value.updatedAt === undefined || typeof value.updatedAt === 'string'),
   )
 }
 

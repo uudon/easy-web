@@ -32,10 +32,12 @@ test('English locale and migrated pages remain available', async ({ page }) => {
   await expect(page.locator('.prose')).toBeVisible()
 })
 
-test('admin page requires authentication and never asks for a GitHub private key', async ({ page }) => {
-  await page.goto('/admin')
-  await expect(page.getByRole('heading', { name: '内容管理' })).toBeVisible()
-  await expect(page.getByLabel('管理密码')).toBeVisible()
-  await expect(page.getByText(/Private Key 不会进入这个页面/)).toBeVisible()
-  await expect(page.getByText(/上传.*Private Key/i)).toHaveCount(0)
-})
+for (const path of ['/admin', '/admin/posts', '/admin/editor/new']) {
+  test(`${path} requires authentication and never asks for a GitHub private key`, async ({ page }) => {
+    await page.goto(path)
+    await expect(page.getByRole('heading', { name: /回到你的\s*写作现场/ })).toBeVisible()
+    await expect(page.getByLabel('管理密码')).toBeVisible()
+    await expect(page.getByText(/管理密钥只在服务器端使用/)).toBeVisible()
+    await expect(page.getByText(/上传.*Private Key/i)).toHaveCount(0)
+  })
+}

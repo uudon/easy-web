@@ -4,10 +4,10 @@ import { AdminStudio } from '@/components/admin/admin-studio'
 import { contentRepository } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: '内容管理',
+  title: '新建文章 · 写作工作台',
   robots: { index: false, follow: false },
 }
 
-export default function AdminPage() {
-  return <AdminStudio posts={contentRepository.getPosts()} view="overview" />
+export default function NewAdminDraftPage() {
+  return <AdminStudio draftId="new" posts={contentRepository.getPosts()} view="editor" />
 }

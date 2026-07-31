@@ -16,7 +16,7 @@ export default async function LocaleLayout({
   const { locale } = await params
 
   return (
-    <html lang={locale === 'en' ? 'en' : 'zh-CN'}>
+    <html data-scroll-behavior="smooth" lang={locale === 'en' ? 'en' : 'zh-CN'}>
       <body>{children}</body>
     </html>
   )

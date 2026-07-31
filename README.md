@@ -59,6 +59,8 @@ npm run admin:hash -- "your-long-password"
 
 预览环境保持 `ENABLE_CONTENT_WRITES=false`。仅在生产域名、GitHub App 权限和回滚流程验证后，把生产环境设为 `true`。
 
+新版工作台会将云草稿和暂存图片写入独立的 `content-drafts` 分支，正式发布时再把文章、索引和图片原子提交到 `GITHUB_BRANCH`。可通过 `GITHUB_DRAFT_BRANCH` 修改草稿分支名称；建议在 Vercel 中忽略该分支的 Preview 部署。
+
 ## 验证
 
 ```bash
