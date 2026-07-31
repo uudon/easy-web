@@ -1,8 +1,9 @@
 {
+  "translationKey": "",
   "locale": "zh-cn",
   "slug": "",
   "title": "大模型只是大脑，Harness 才是 AI Agent 真正的身体",
-  "summary": "",
+  "summary": "模型负责思考和决策；\nHarness 负责提供 工具、上下文、权限、和执行环境",
   "category": "thinking",
   "publishDate": "2026-07-31",
   "body": "# 开始写作\n\n",
@@ -10,6 +11,5 @@
   "id": "draft_759656518e4c425f819224dc45bfcd39",
   "assets": [],
   "status": "draft",
-  "updatedAt": "2026-07-31T01:27:57.627Z",
-  "translationKey": ""
+  "updatedAt": "2026-07-31T01:28:05.568Z"
 }
