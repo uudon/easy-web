@@ -1,5 +1,15 @@
 [
   {
+    "title": "大模型只是大脑，Harness 才是 AI Agent 真正的身体",
+    "summary": "模型负责思考和决策；\nHarness 负责提供 工具、上下文、权限、和执行环境",
+    "date": "2026-07-31",
+    "locale": "zh-cn",
+    "category": "thinking",
+    "slug": "harness",
+    "originalPath": "/zh-cn/blog/harness",
+    "updatedAt": "2026-07-31T01:28:40.378Z"
+  },
+  {
     "locale": "zh-cn",
     "category": "thinking",
     "slug": "technological-change-and-social-reconstruction",
