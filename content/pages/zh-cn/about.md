@@ -5,6 +5,8 @@ date: "2026-08-04"
 locale: "zh-cn"
 pagePath: "about"
 originalPath: "/zh-cn/about"
+avatar: "/images/about/shixing.jpg"
+avatarAlt: "施行的个人头像"
 ---
 
 # 从写代码到做项目：我的技术成长与角色转变

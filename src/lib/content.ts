@@ -24,6 +24,8 @@ export type PageSummary = {
   locale: Locale
   pagePath: string
   originalPath: string
+  avatar?: string
+  avatarAlt?: string
 }
 
 export type Post = PostSummary & { body: string }
@@ -134,6 +136,12 @@ function isValidPostSummary(value: Partial<PostSummary>): value is PostSummary {
 }
 
 function isValidPageSummary(value: Partial<PageSummary>): value is PageSummary {
+  const hasValidAvatar =
+    value.avatar === undefined ||
+    (/^\/[a-z0-9][a-z0-9/_-]*\.(?:avif|jpe?g|png|webp)$/i.test(value.avatar) &&
+      typeof value.avatarAlt === 'string' &&
+      value.avatarAlt.trim().length > 0)
+
   return Boolean(
     value &&
       typeof value.title === 'string' &&
@@ -142,6 +150,7 @@ function isValidPageSummary(value: Partial<PageSummary>): value is PageSummary {
       typeof value.locale === 'string' &&
       isLocale(value.locale) &&
       typeof value.pagePath === 'string' &&
-      typeof value.originalPath === 'string',
+      typeof value.originalPath === 'string' &&
+      hasValidAvatar,
   )
 }

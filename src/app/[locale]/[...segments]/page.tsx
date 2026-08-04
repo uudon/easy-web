@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
+import { ArticleHeader } from '@/components/article-header'
 import { Markdown } from '@/components/markdown'
 import { SiteShell } from '@/components/site-shell'
 import { contentRepository, isLocale, locales, type Locale } from '@/lib/content'
@@ -44,11 +45,13 @@ export default async function ContentPageRoute({ params }: ContentPageProps) {
     <SiteShell locale={locale}>
       <main className="article-page page-document">
         <article>
-          <header className="article-header">
-            <p className="eyebrow">PAGE / {locale.toUpperCase()}</p>
-            <h1>{page.title}</h1>
-            {page.summary ? <p>{page.summary}</p> : null}
-          </header>
+          <ArticleHeader
+            avatar={page.avatar}
+            avatarAlt={page.avatarAlt}
+            eyebrow={`PAGE / ${locale.toUpperCase()}`}
+            summary={page.summary}
+            title={page.title}
+          />
           <Markdown>{page.body}</Markdown>
         </article>
       </main>

@@ -54,7 +54,23 @@ test('migrateContent writes posts, pages, indexes and redirects without dropping
     '# 深度工作\n\n专注是一种能力。\n',
     'utf8',
   )
-  fs.writeFileSync(path.join(pageDir, 'about.md'), '# 关于我\n\n这是个人介绍。\n', 'utf8')
+  fs.writeFileSync(
+    path.join(pageDir, 'about.md'),
+    [
+      '---',
+      'title: "关于我"',
+      'summary: "这是个人介绍。"',
+      'avatar: "/images/about/shixing.jpg"',
+      'avatarAlt: "施行的个人头像"',
+      '---',
+      '',
+      '# 关于我',
+      '',
+      '这是个人介绍。',
+      '',
+    ].join('\n'),
+    'utf8',
+  )
 
   const result = migrateContent({ rootDir })
 
@@ -66,6 +82,12 @@ test('migrateContent writes posts, pages, indexes and redirects without dropping
     fs.readFileSync(path.join(rootDir, 'content', 'pages', 'zh-cn', 'about.md'), 'utf8'),
     /pagePath: "about"/,
   )
+  assert.match(
+    fs.readFileSync(path.join(rootDir, 'content', 'pages', 'zh-cn', 'about.md'), 'utf8'),
+    /avatar: "\/images\/about\/shixing.jpg"/,
+  )
+  assert.equal(result.pages[0].avatar, '/images/about/shixing.jpg')
+  assert.equal(result.pages[0].avatarAlt, '施行的个人头像')
   assert.equal(fs.existsSync(path.join(rootDir, 'content', 'index.json')), true)
   assert.equal(fs.existsSync(path.join(rootDir, 'content', 'redirects.json')), true)
   assert.equal(fs.existsSync(path.join(articleDir, 'deep-work.md')), true)

@@ -62,6 +62,7 @@ export function buildContentRecord({ relativePath, content, modifiedAt = new Dat
   }
 
   const pagePath = filename === 'index' ? routeParts.slice(0, -1).join('/') : routePath
+  const profile = readPageProfile(data)
   return {
     kind: 'page',
     locale,
@@ -70,6 +71,7 @@ export function buildContentRecord({ relativePath, content, modifiedAt = new Dat
     summary,
     date,
     originalPath,
+    ...profile,
     body: removeLeadingTitle(body),
   }
 }
@@ -126,6 +128,7 @@ export function migrateContent({ rootDir }) {
     summary: page.summary,
     date: page.date,
     originalPath: page.originalPath,
+    ...(page.avatar ? { avatar: page.avatar, avatarAlt: page.avatarAlt } : {}),
   }))
   const redirects = posts.flatMap((post) => [
     {
@@ -188,6 +191,18 @@ function readTitle(data, body, fallback) {
     .find((line) => /^#\s+/.test(line))
 
   return heading ? heading.replace(/^#\s+/, '').trim() : fallback
+}
+
+function readPageProfile(data) {
+  if (!data.avatar && !data.avatarAlt) return {}
+
+  const isValidAvatar =
+    /^\/[a-z0-9][a-z0-9/_-]*\.(?:avif|jpe?g|png|webp)$/i.test(data.avatar ?? '')
+  if (!isValidAvatar || !data.avatarAlt?.trim()) {
+    throw new Error('Page avatar requires a local image path and non-empty avatarAlt text.')
+  }
+
+  return { avatar: data.avatar, avatarAlt: data.avatarAlt.trim() }
 }
 
 function readSummary(data, body) {
@@ -256,6 +271,12 @@ function serializePage(page) {
     `locale: ${JSON.stringify(page.locale)}`,
     `pagePath: ${JSON.stringify(page.pagePath)}`,
     `originalPath: ${JSON.stringify(page.originalPath)}`,
+    ...(page.avatar
+      ? [
+          `avatar: ${JSON.stringify(page.avatar)}`,
+          `avatarAlt: ${JSON.stringify(page.avatarAlt)}`,
+        ]
+      : []),
     '---',
     '',
     page.body,

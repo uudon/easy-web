@@ -171,9 +171,11 @@
     "locale": "zh-cn",
     "pagePath": "about",
     "title": "关于我",
-    "summary": "我是施行。",
-    "date": "2026-04-23",
-    "originalPath": "/zh-cn/about"
+    "summary": "大家好，我是施行。",
+    "date": "2026-08-04",
+    "originalPath": "/zh-cn/about",
+    "avatar": "/images/about/shixing.jpg",
+    "avatarAlt": "施行的个人头像"
   },
   {
     "locale": "zh-cn",

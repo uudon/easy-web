@@ -46,7 +46,7 @@ describe('content repository', () => {
     fs.mkdirSync(pagesDir, { recursive: true })
     fs.writeFileSync(
       path.join(pagesDir, 'about.md'),
-      '---\ntitle: "关于我"\nsummary: "介绍"\ndate: "2026-01-01"\nlocale: "zh-cn"\npagePath: "about"\noriginalPath: "/zh-cn/about"\n---\n\n页面正文',
+      '---\ntitle: "关于我"\nsummary: "介绍"\ndate: "2026-01-01"\nlocale: "zh-cn"\npagePath: "about"\noriginalPath: "/zh-cn/about"\navatar: "/images/about/shixing.jpg"\navatarAlt: "施行的个人头像"\n---\n\n页面正文',
       'utf8',
     )
     fs.writeFileSync(
@@ -65,7 +65,11 @@ describe('content repository', () => {
     )
     const repository = createContentRepository(rootDir)
 
-    expect(repository.getPage('zh-cn', ['about'])?.body).toContain('页面正文')
+    const aboutPage = repository.getPage('zh-cn', ['about'])
+
+    expect(aboutPage?.body).toContain('页面正文')
+    expect(aboutPage?.avatar).toBe('/images/about/shixing.jpg')
+    expect(aboutPage?.avatarAlt).toBe('施行的个人头像')
     expect(repository.getPages('zh-cn')).toHaveLength(1)
     expect(repository.getCategories('zh-cn')).toEqual([
       { slug: 'ai', count: 1 },
