@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { PostCard } from '@/components/post-card'
 import { SiteShell } from '@/components/site-shell'
 import { contentRepository, isLocale, locales, type Locale } from '@/lib/content'
-import { categoryLabel } from '@/lib/format'
+import { categoryLabel, formatDate } from '@/lib/format'
 import { novelRepository } from '@/lib/novels'
 
 type LocalePageProps = {
@@ -15,21 +15,39 @@ type LocalePageProps = {
 const copy = {
   'zh-cn': {
     eyebrow: 'SHIXING / PERSONAL NOTES',
-    title: '把复杂的事，想清楚。',
-    description: '记录 AI、编程、算法与项目实践，也记录技术之外缓慢形成的判断。',
+    issue: 'Vol. 01',
+    titleLines: ['“所谓无底深渊，', '下去，也是前程万里。”'],
+    description: '我在这里记录 AI、编程、算法和项目推进里的真实取舍。写怎么做，也写为什么这样做。',
+    primaryAction: '进入文章',
+    secondaryAction: '浏览主题',
     latest: '最近写下',
     all: '查看全部文章',
+    featuredLabel: '本期文章',
+    featuredDeck: '从最近一次写作里，挑出最值得先读的一篇。',
+    featuredCta: '继续阅读',
     catalog: '主题索引',
-    note: '这里不是知识库的终点，而是我持续思考的现场。',
+    note: '这里不追热点总结，更重视做事过程、技术判断和长期能复用的方法。',
+    noteLabel: 'Editor’s note',
+    recentTitle: '最近更新',
+    topicsTitle: '重点主题',
   },
   en: {
     eyebrow: 'SHIXING / PERSONAL NOTES',
-    title: 'Think clearly about complicated things.',
-    description: 'Notes on AI, software, algorithms, projects, and the judgment that forms between them.',
+    issue: 'Vol. 01',
+    titleLines: ['Write technology, problems,', 'and judgment with clarity.'],
+    description: 'I write about real tradeoffs in AI, software, algorithms, and project delivery: how to do the work, and why the choice matters.',
+    primaryAction: 'Enter the journal',
+    secondaryAction: 'Browse topics',
     latest: 'Latest notes',
     all: 'Read all writing',
+    featuredLabel: 'Feature story',
+    featuredDeck: 'A highlighted piece from the latest round of writing.',
+    featuredCta: 'Continue reading',
     catalog: 'Topic index',
-    note: 'Not a finished knowledge base, but a living record of thought.',
+    note: 'Less interested in trend summaries, more interested in process, judgment, and reusable methods.',
+    noteLabel: 'Editor’s note',
+    recentTitle: 'Recent updates',
+    topicsTitle: 'Core topics',
   },
 } as const
 
@@ -56,6 +74,8 @@ export default async function LocaleHome({ params }: LocalePageProps) {
   const posts = contentRepository.getPosts(locale)
   const categories = contentRepository.getCategories(locale)
   const featured = posts[0]
+  const heroPosts = posts.slice(0, 3)
+  const heroTopics = categories.slice(0, 3)
   const recent = posts.slice(1, 7)
   const text = copy[locale]
   const latestNovel = locale === 'zh-cn' ? novelRepository.getNovels()[0] : null
@@ -65,13 +85,66 @@ export default async function LocaleHome({ params }: LocalePageProps) {
       <main>
         <section className="hero">
           <div className="hero-copy">
-            <p className="eyebrow">{text.eyebrow}</p>
-            <h1>{text.title}</h1>
+            <div className="hero-headline-meta">
+              <p className="eyebrow">{text.eyebrow}</p>
+              <span className="hero-issue">{text.issue}</span>
+            </div>
+            <h1>
+              {text.titleLines.map((line) => (
+                <span className="hero-title-line" key={line}>
+                  {line}
+                </span>
+              ))}
+            </h1>
             <p className="hero-description">{text.description}</p>
+            <div className="hero-actions">
+              <Link className="hero-action hero-action--primary" href={`/${locale}/blog`}>
+                {text.primaryAction} <span aria-hidden="true">↗</span>
+              </Link>
+              <Link className="hero-action" href="#topic-index">
+                {text.secondaryAction} <span aria-hidden="true">↓</span>
+              </Link>
+            </div>
           </div>
           <div className="hero-aside">
-            <span className="hero-index">01—{String(posts.length).padStart(2, '0')}</span>
-            <p>{text.note}</p>
+            <div className="hero-note">
+              <span className="hero-note-label">{text.noteLabel}</span>
+              <span className="hero-index">01—{String(posts.length).padStart(2, '0')}</span>
+              <p>{text.note}</p>
+            </div>
+            <div className="hero-panel">
+              <div className="hero-panel-section">
+                <p className="hero-panel-title">{text.recentTitle}</p>
+                <div className="hero-recent-list">
+                  {heroPosts.map((post) => (
+                    <Link
+                      className="hero-recent-item"
+                      href={`/${locale}/blog/${post.slug}`}
+                      key={`${post.locale}-${post.slug}`}
+                    >
+                      <span>{categoryLabel(post.category, locale)}</span>
+                      <strong>{post.title}</strong>
+                      <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className="hero-panel-section">
+                <p className="hero-panel-title">{text.topicsTitle}</p>
+                <div className="hero-topic-list">
+                  {heroTopics.map((category) => (
+                    <Link
+                      className="hero-topic-pill"
+                      href={`/${locale}/blog?category=${category.slug}`}
+                      key={category.slug}
+                    >
+                      <span>{categoryLabel(category.slug, locale)}</span>
+                      <em>{category.count}</em>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -82,18 +155,29 @@ export default async function LocaleHome({ params }: LocalePageProps) {
               <Link href={`/${locale}/blog`}>{text.all} →</Link>
             </div>
             <article className="featured-post">
-              <div className="featured-symbol" aria-hidden="true">
-                <span>新</span>
+              <div className="featured-rail">
+                <div className="featured-symbol" aria-hidden="true">
+                  <span>{locale === 'zh-cn' ? '新' : 'F'}</span>
+                </div>
+                <div className="featured-rail-copy">
+                  <p className="featured-rail-label">{text.featuredLabel}</p>
+                  <p>{text.featuredDeck}</p>
+                </div>
               </div>
               <div className="featured-content">
                 <p className="post-meta">
                   <span>{categoryLabel(featured.category, locale)}</span>
-                  <time dateTime={featured.date}>{featured.date}</time>
+                  <time dateTime={featured.date}>{formatDate(featured.date, locale)}</time>
                 </p>
                 <h2 id="featured-title">
                   <Link href={`/${locale}/blog/${featured.slug}`}>{featured.title}</Link>
                 </h2>
                 <p>{featured.summary}</p>
+                <div className="featured-footer">
+                  <Link className="featured-link" href={`/${locale}/blog/${featured.slug}`}>
+                    {text.featuredCta} →
+                  </Link>
+                </div>
               </div>
             </article>
           </section>
@@ -126,7 +210,7 @@ export default async function LocaleHome({ params }: LocalePageProps) {
           </section>
         ) : null}
 
-        <section className="topic-section">
+        <section className="topic-section" id="topic-index">
           <div>
             <p className="eyebrow">{text.catalog}</p>
             <h2>{locale === 'zh-cn' ? '沿着问题，建立自己的坐标。' : 'Build a map by following questions.'}</h2>
