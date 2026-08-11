@@ -1,13 +1,12 @@
 [
   {
-    "title": "大模型只是大脑，Harness 才是 AI Agent 真正的身体",
-    "summary": "模型负责思考和决策；\nHarness 负责提供 工具、上下文、权限、和执行环境",
-    "date": "2026-07-31",
     "locale": "zh-cn",
     "category": "thinking",
-    "slug": "harness",
-    "originalPath": "/zh-cn/blog/harness",
-    "updatedAt": "2026-07-31T01:28:40.378Z"
+    "slug": "how-to-read-a-book",
+    "title": "读书真正重要的，不是读完，而是改变",
+    "summary": "这些年，我买过不少书，也读过不少书。",
+    "date": "2026-08-11",
+    "originalPath": "/zh-cn/topics/thinking/how-to-read-a-book"
   },
   {
     "locale": "zh-cn",

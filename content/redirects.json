@@ -1,5 +1,15 @@
 [
   {
+    "source": "/zh-cn/topics/thinking/how-to-read-a-book",
+    "destination": "/zh-cn/blog/how-to-read-a-book",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/thinking/how-to-read-a-book.html",
+    "destination": "/zh-cn/blog/how-to-read-a-book",
+    "permanent": true
+  },
+  {
     "source": "/zh-cn/topics/thinking/technological-change-and-social-reconstruction",
     "destination": "/zh-cn/blog/technological-change-and-social-reconstruction",
     "permanent": true
