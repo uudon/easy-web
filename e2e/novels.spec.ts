@@ -8,10 +8,20 @@ test('Chinese visitors can open the independent novel shelf', async ({ page }) =
   await expect(page.getByRole('heading', { level: 1, name: '连载小说' })).toBeVisible()
   await expect(page.getByRole('link', { name: '北纬二十七度', exact: true })).toBeVisible()
   await expect(page.getByRole('link', { name: '被看见的人', exact: true })).toBeVisible()
+  const shelfCover = page.getByRole('img', { name: '《北纬二十七度》封面' })
+  await expect(shelfCover).toBeVisible()
+  await expect
+    .poll(() => shelfCover.evaluate((image) => (image as HTMLImageElement).naturalWidth))
+    .toBeGreaterThan(0)
 
   await page.getByRole('link', { name: '北纬二十七度', exact: true }).click()
   await expect(page).toHaveURL(/\/zh-cn\/novels\/bei-wei-er-shi-qi-du$/)
   await expect(page.getByRole('heading', { level: 1, name: '北纬二十七度' })).toBeVisible()
+  const detailCover = page.getByRole('img', { name: '《北纬二十七度》封面' })
+  await expect(detailCover).toBeVisible()
+  await expect
+    .poll(() => detailCover.evaluate((image) => (image as HTMLImageElement).naturalWidth))
+    .toBeGreaterThan(0)
   await page.getByRole('link', { name: /鱼不吃了/ }).click()
   await expect(page).toHaveURL(/\/zh-cn\/novels\/bei-wei-er-shi-qi-du\/chapter-01$/)
   await expect(page.getByRole('heading', { level: 1, name: '鱼不吃了' })).toBeVisible()
