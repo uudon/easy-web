@@ -113,6 +113,18 @@ describe('novel repository', () => {
   })
 })
 
+describe('published novel content', () => {
+  it('keeps index chapter metadata aligned with the published chapter files', () => {
+    const repository = createNovelRepository(process.cwd())
+
+    for (const novel of repository.getNovels()) {
+      const chapters = repository.getChapters(novel.slug)
+      expect(chapters).toHaveLength(novel.chapterCount)
+      expect(chapters.at(-1)?.slug ?? null).toBe(novel.latestChapter)
+    }
+  })
+})
+
 function createFixture() {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'easy-web-novels-'))
   temporaryDirectories.push(rootDir)

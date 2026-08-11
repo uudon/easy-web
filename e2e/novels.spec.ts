@@ -6,7 +6,16 @@ test('Chinese visitors can open the independent novel shelf', async ({ page }) =
 
   await expect(page).toHaveURL(/\/zh-cn\/novels$/)
   await expect(page.getByRole('heading', { level: 1, name: '连载小说' })).toBeVisible()
-  await expect(page.getByText('小说会在这里陆续出现')).toBeVisible()
+  await expect(page.getByRole('link', { name: '北纬二十七度', exact: true })).toBeVisible()
+  await expect(page.getByRole('link', { name: '被看见的人', exact: true })).toBeVisible()
+
+  await page.getByRole('link', { name: '北纬二十七度', exact: true }).click()
+  await expect(page).toHaveURL(/\/zh-cn\/novels\/bei-wei-er-shi-qi-du$/)
+  await expect(page.getByRole('heading', { level: 1, name: '北纬二十七度' })).toBeVisible()
+  await page.getByRole('link', { name: /鱼不吃了/ }).click()
+  await expect(page).toHaveURL(/\/zh-cn\/novels\/bei-wei-er-shi-qi-du\/chapter-01$/)
+  await expect(page.getByRole('heading', { level: 1, name: '鱼不吃了' })).toBeVisible()
+  await expect(page.getByText('鱼已经报警了。')).toBeVisible()
 })
 
 test('English navigation does not expose the Chinese-only novel shelf', async ({ page }) => {
