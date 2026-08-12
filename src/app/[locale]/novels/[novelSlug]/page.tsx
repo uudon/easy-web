@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { Markdown } from '@/components/markdown'
 import { ContinueReading } from '@/components/novel-reading-progress'
 import { SiteShell } from '@/components/site-shell'
 import { formatDate } from '@/lib/format'
@@ -45,6 +46,7 @@ export default async function NovelPage({ params }: NovelPageProps) {
   const novel = novelRepository.getNovel(novelSlug)
   if (!novel) notFound()
   const chapters = novelRepository.getChapters(novelSlug)
+  const description = novelRepository.getDescription(novelSlug)
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Book',
@@ -78,7 +80,13 @@ export default async function NovelPage({ params }: NovelPageProps) {
                 <span>{novel.status}</span>
               </p>
               <h1>{novel.title}</h1>
-              <p>{novel.summary}</p>
+              {description ? (
+                <div className="novel-description">
+                  <Markdown>{description}</Markdown>
+                </div>
+              ) : (
+                <p>{novel.summary}</p>
+              )}
               <div className="novel-detail-actions">
                 <ContinueReading
                   chapterSlugs={chapters.map((chapter) => chapter.slug)}

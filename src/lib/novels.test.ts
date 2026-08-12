@@ -123,6 +123,14 @@ describe('published novel content', () => {
       expect(chapters.at(-1)?.slug ?? null).toBe(novel.latestChapter)
     }
   })
+
+  it('loads a full novel description separately from the shelf summary', () => {
+    const repository = createNovelRepository(process.cwd())
+
+    expect(repository.getDescription('bei-wei-er-shi-qi-du')).toContain(
+      '那七天里，11号舱一直是绿色的。',
+    )
+  })
 })
 
 function createFixture() {

@@ -2,7 +2,11 @@ import { generateKeyPairSync } from 'node:crypto'
 import { importPKCS8 } from 'jose'
 import { describe, expect, it } from 'vitest'
 
-import { normalizeGitHubPrivateKey, parseRepositoryJson } from './github-app'
+import {
+  isPublishedNovelChapterPath,
+  normalizeGitHubPrivateKey,
+  parseRepositoryJson,
+} from './github-app'
 
 describe('GitHub App private key normalization', () => {
   const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 })
@@ -35,5 +39,12 @@ describe('repository JSON parsing', () => {
         'content/novels/index.json',
       ),
     ).toEqual({ title: '纸月亮' })
+  })
+})
+
+describe('published novel chapter paths', () => {
+  it('excludes a novel description from chapter enumeration', () => {
+    expect(isPublishedNovelChapterPath('content/novels/paper-moon/chapter-01.md')).toBe(true)
+    expect(isPublishedNovelChapterPath('content/novels/paper-moon/description.md')).toBe(false)
   })
 })

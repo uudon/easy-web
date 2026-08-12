@@ -57,6 +57,19 @@ export function createNovelRepository(rootDir: string) {
     return getNovels().find((novel) => novel.slug === slug) ?? null
   }
 
+  function getDescription(novelSlug: string): string | null {
+    if (!getNovel(novelSlug)) return null
+    try {
+      const description = fs.readFileSync(
+        path.join(novelsDir, novelSlug, 'description.md'),
+        'utf8',
+      ).trim()
+      return description || null
+    } catch {
+      return null
+    }
+  }
+
   function getChapters(novelSlug: string): NovelChapter[] {
     if (!getNovel(novelSlug)) return []
 
@@ -69,7 +82,7 @@ export function createNovelRepository(rootDir: string) {
     }
 
     const chapters = filenames
-      .filter((filename) => filename.endsWith('.md'))
+      .filter((filename) => filename.endsWith('.md') && filename !== 'description.md')
       .map((filename) => readChapter(chapterDir, filename, novelSlug))
       .filter((chapter): chapter is NovelChapter => chapter !== null)
       .sort((left, right) => left.order - right.order)
@@ -94,7 +107,14 @@ export function createNovelRepository(rootDir: string) {
     }
   }
 
-  return { getNovels, getNovel, getChapters, getChapter, getAdjacentChapters }
+  return {
+    getNovels,
+    getNovel,
+    getDescription,
+    getChapters,
+    getChapter,
+    getAdjacentChapters,
+  }
 }
 
 export const novelRepository = createNovelRepository(process.cwd())

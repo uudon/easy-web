@@ -781,6 +781,10 @@ function areJsonValuesEqual(left: unknown, right: unknown) {
   return JSON.stringify(left) === JSON.stringify(right)
 }
 
+export function isPublishedNovelChapterPath(filePath: string) {
+  return filePath.endsWith('.md') && !filePath.endsWith('/description.md')
+}
+
 async function readPublishedNovelChapters(
   context: Awaited<ReturnType<typeof createGitHubContext>>,
   novelSlug: string,
@@ -793,7 +797,10 @@ async function readPublishedNovelChapters(
   )
   if (!response || !Array.isArray(response)) return []
   const chapterEntries = response.filter(
-    (entry) => entry.type === 'file' && entry.path?.endsWith('.md'),
+    (entry) =>
+      entry.type === 'file' &&
+      typeof entry.path === 'string' &&
+      isPublishedNovelChapterPath(entry.path),
   )
   const chapters = await Promise.all(
     chapterEntries

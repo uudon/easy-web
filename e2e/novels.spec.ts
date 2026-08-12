@@ -18,6 +18,7 @@ test('Chinese visitors can open the independent novel shelf', async ({ page }) =
   await expect(page).toHaveURL(/\/zh-cn\/novels\/bei-wei-er-shi-qi-du$/)
   await expect(page.getByRole('heading', { level: 1, name: '北纬二十七度' })).toBeVisible()
   await expect(page.getByText(/2031年9月，远海智慧养殖工船/)).toBeVisible()
+  await expect(page.getByText('那七天里，11号舱一直是绿色的。')).toBeVisible()
   const detailCover = page.getByRole('img', { name: '《北纬二十七度》封面' })
   await expect(detailCover).toBeVisible()
   await expect
