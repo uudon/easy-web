@@ -39,6 +39,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: 'weekly' as const,
         priority: 0.8,
       },
+      ...(novelRepository.getDescription(novel.slug)
+        ? [{
+            url: `${siteUrl}/zh-cn/novels/${novel.slug}/description`,
+            lastModified: new Date(`${novel.updatedAt}T00:00:00.000Z`),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+          }]
+        : []),
       ...novelRepository.getChapters(novel.slug).map((chapter) => ({
         url: `${siteUrl}/zh-cn/novels/${novel.slug}/${chapter.slug}`,
         lastModified: new Date(`${chapter.updatedAt ?? chapter.publishDate}T00:00:00.000Z`),

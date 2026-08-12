@@ -55,6 +55,7 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
   if (!novel || !chapter) notFound()
   const chapters = novelRepository.getChapters(novelSlug)
   const adjacent = novelRepository.getAdjacentChapters(novelSlug, chapterSlug)
+  const hasDescription = Boolean(novelRepository.getDescription(novelSlug))
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Chapter',
@@ -100,6 +101,11 @@ export default async function ChapterPage({ params }: ChapterPageProps) {
             <Link href={`/zh-cn/novels/${novel.slug}/${adjacent.previous.slug}`}>
               <span>← 上一章</span>
               <strong>{adjacent.previous.title}</strong>
+            </Link>
+          ) : chapter.order === 1 && hasDescription ? (
+            <Link href={`/zh-cn/novels/${novel.slug}/description`}>
+              <span>← 上一章</span>
+              <strong>简介</strong>
             </Link>
           ) : <span />}
           <Link className="chapter-directory-link" href={`/zh-cn/novels/${novel.slug}`}>

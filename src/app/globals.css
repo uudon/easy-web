@@ -931,23 +931,6 @@ textarea {
   line-height: 1.8;
 }
 
-.novel-description {
-  max-width: 620px;
-  margin-top: 32px;
-  color: var(--muted);
-  font-family: var(--display);
-  font-size: 1.05rem;
-  line-height: 1.85;
-}
-
-.novel-description p {
-  margin: 0 0 1.15em;
-}
-
-.novel-description p:last-child {
-  margin-bottom: 0;
-}
-
 .novel-detail-actions {
   display: flex;
   align-items: center;

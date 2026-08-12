@@ -212,13 +212,26 @@ export async function deletePublishedNovel(
   const context = await createGitHubContext()
   const current = await readNovelIndexState(context)
   if (!areJsonValuesEqual(current.index, expectedIndex)) throw new DraftRevisionError()
+  const descriptionPath = `content/novels/${slug}/description.md`
+  const description = await readRepositoryFile(
+    context.token,
+    context.config,
+    descriptionPath,
+    context.config.branch,
+  )
   try {
     const result = await commitFiles({
       ...context,
       branch: context.config.branch,
       message: `chore: remove novel ${slug}`,
-      files: [{ path: novelIndexPath, content: `${JSON.stringify(index, null, 2)}\n` }],
-      expectedFiles: { [novelIndexPath]: current.revision },
+      files: [
+        { path: novelIndexPath, content: `${JSON.stringify(index, null, 2)}\n` },
+        ...(description ? [{ path: descriptionPath, content: null }] : []),
+      ],
+      expectedFiles: {
+        [novelIndexPath]: current.revision,
+        ...(description ? { [descriptionPath]: description.sha } : {}),
+      },
     })
     return { sha: result.sha }
   } catch (error) {
