@@ -1,5 +1,15 @@
 [
   {
+    "source": "/zh-cn/topics/thinking/work-shapes-who-you-become",
+    "destination": "/zh-cn/blog/work-shapes-who-you-become",
+    "permanent": true
+  },
+  {
+    "source": "/zh-cn/topics/thinking/work-shapes-who-you-become.html",
+    "destination": "/zh-cn/blog/work-shapes-who-you-become",
+    "permanent": true
+  },
+  {
     "source": "/zh-cn/topics/thinking/how-to-read-a-book",
     "destination": "/zh-cn/blog/how-to-read-a-book",
     "permanent": true
