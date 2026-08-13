@@ -31,7 +31,7 @@ export default async function NovelShelfPage({ params }: NovelShelfPageProps) {
         <header className="novel-shelf-header">
           <p className="eyebrow">FICTION / {String(novels.length).padStart(2, '0')}</p>
           <h1>连载小说</h1>
-          <p>故事在章节之间慢慢展开。这里与文章彼此独立，适合从第一页开始，也适合回来接着读。</p>
+          <p>所有创作，都是一场独自启程的漫游。在寂静中和自我对望，把无形的感受，塑造成看得见的表达。</p>
         </header>
 
         {novels.length > 0 ? (
