@@ -16,7 +16,7 @@ const copy = {
   'zh-cn': {
     eyebrow: 'SHIXING / PERSONAL NOTES',
     issue: 'Vol. 01',
-    titleLines: ['“所谓无底深渊，', '下去，也是前程万里。”'],
+    titleLines: ['“我在这里思考，', '过去、现在、未来。”'],
     description: '我在这里记录 AI、编程、算法和项目推进里的真实取舍。写怎么做，也写为什么这样做。',
     primaryAction: '进入文章',
     secondaryAction: '浏览主题',
@@ -34,7 +34,7 @@ const copy = {
   en: {
     eyebrow: 'SHIXING / PERSONAL NOTES',
     issue: 'Vol. 01',
-    titleLines: ['Write technology, problems,', 'and judgment with clarity.'],
+    titleLines: ['I am here contemplating,', 'the past，the present and the future.'],
     description: 'I write about real tradeoffs in AI, software, algorithms, and project delivery: how to do the work, and why the choice matters.',
     primaryAction: 'Enter the journal',
     secondaryAction: 'Browse topics',
