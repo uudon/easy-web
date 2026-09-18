@@ -19,6 +19,9 @@ test('Chinese visitors can open the independent novel shelf', async ({ page }) =
   await expect(page.getByRole('heading', { level: 1, name: '北纬二十七度' })).toBeVisible()
   await expect(page.getByText(/2031年9月，远海智慧养殖工船/)).toBeVisible()
   await expect(page.getByText('那七天里，11号舱一直是绿色的。')).toHaveCount(0)
+  await expect(page.getByRole('link', { name: /03.*白点/ })).toBeVisible()
+  await expect(page.getByRole('link', { name: /04.*十九米以下/ })).toBeVisible()
+  await expect(page.getByRole('link', { name: /05.*正常/ })).toBeVisible()
   const detailCover = page.getByRole('img', { name: '《北纬二十七度》封面' })
   await expect(detailCover).toBeVisible()
   await expect
@@ -37,6 +40,9 @@ test('Chinese visitors can open the independent novel shelf', async ({ page }) =
   await expect(page).toHaveURL(/\/zh-cn\/novels\/bei-wei-er-shi-qi-du\/chapter-02$/)
   await expect(page.getByRole('heading', { level: 1, name: '一百八十四万' })).toBeVisible()
   await expect(page.getByText('远牧一号每天早上八点零三分清点自己的生命。')).toBeVisible()
+  await page.goto('/zh-cn/novels/bei-wei-er-shi-qi-du/chapter-05')
+  await expect(page.getByRole('heading', { level: 1, name: '正常' })).toBeVisible()
+  await expect(page.getByText('九月十四日十八点二十七分，韩启明在海图上画掉了向北的航线。')).toBeVisible()
 })
 
 test('English navigation does not expose the Chinese-only novel shelf', async ({ page }) => {
