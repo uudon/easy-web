@@ -89,6 +89,34 @@ test('article library searches and filters published posts and drafts', async ({
   await expect(rows.first()).toBeVisible()
 })
 
+test('desktop and phone layouts stay within the viewport with usable navigation targets', async ({ page }, testInfo) => {
+  await mockAuthenticatedAdmin(page)
+
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/admin/posts')
+  await expect(page.locator('.studio-navigation')).toBeVisible()
+  await expect(page.locator('.studio-mobile-header')).toBeHidden()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.screenshot({
+    fullPage: true,
+    path: testInfo.outputPath('admin-posts-desktop.png'),
+  })
+
+  await page.setViewportSize({ width: 390, height: 844 })
+  await expect(page.locator('.studio-mobile-header')).toBeVisible()
+  const navTargets = page.getByRole('navigation', { name: '工作台导航' }).getByRole('link')
+  const targetCount = await navTargets.count()
+  for (let index = 0; index < targetCount; index += 1) {
+    const box = await navTargets.nth(index).boundingBox()
+    expect(box?.height ?? 0).toBeGreaterThanOrEqual(44)
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.screenshot({
+    fullPage: true,
+    path: testInfo.outputPath('admin-posts-mobile.png'),
+  })
+})
+
 test('new editor supports writing, preview, publish review and mobile modes', async ({ page }) => {
   await mockAuthenticatedAdmin(page)
   await page.setViewportSize({ width: 390, height: 844 })
@@ -345,12 +373,49 @@ test('draft deletion requires the exact title and removes the row after success'
   })
 
   await page.goto('/admin/posts')
-  page.once('dialog', (dialog) => void dialog.accept(draft.title))
   await page.getByRole('button', { name: `删除 ${draft.title}` }).click()
+  const deleteDialog = page.getByRole('dialog', { name: '确认删除草稿' })
+  await expect(deleteDialog).toBeVisible()
+  await deleteDialog.getByLabel('输入文章标题以确认').fill(draft.title)
+  await deleteDialog.getByRole('button', { name: '永久删除' }).click()
 
   await expect(page.getByText('草稿已删除。')).toBeVisible()
   await expect(page.getByText(draft.title)).toHaveCount(0)
   expect(deletedRevision).toBe(draft.revision)
+})
+
+test('a browser-only draft can be deleted without leaving recovery data behind', async ({ page }) => {
+  await page.route('**/api/admin/session**', async (route) => {
+    await fulfillJson(route, {
+      authenticated: true,
+      csrfToken,
+      writesEnabled: true,
+    })
+  })
+  await page.route('**/api/admin/drafts**', async (route) => {
+    if (route.request().method() === 'POST') {
+      await fulfillJson(
+        route,
+        { error: { code: 'UPSTREAM_ERROR', message: '云草稿暂时不可用。' } },
+        502,
+      )
+      return
+    }
+    await fulfillJson(route, { data: [] })
+  })
+
+  await page.goto('/admin/editor/new')
+  await page.getByLabel('文章标题').fill('只保存在浏览器的草稿')
+  await page.getByRole('button', { name: '设置', exact: true }).click()
+  await page.getByRole('button', { name: '删除草稿' }).click()
+
+  const dialog = page.getByRole('dialog', { name: '确认删除草稿' })
+  await dialog.getByLabel('输入文章标题以确认').fill('只保存在浏览器的草稿')
+  await dialog.getByRole('button', { name: '永久删除' }).click()
+
+  await expect(page).toHaveURL(/\/admin\/posts$/)
+  const recoveryValue = await page.evaluate(() => localStorage.getItem('easy-web:admin-draft:local-new'))
+  expect(recoveryValue).toBeNull()
 })
 
 test('local recovery survives reload, toolbar edits render, and publish focus stays trapped', async ({ page }) => {

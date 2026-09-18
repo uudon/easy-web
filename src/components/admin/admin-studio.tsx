@@ -17,6 +17,7 @@ import { AdminEditor } from './editor'
 import { AdminOverview } from './overview'
 import { AdminPostsView } from './posts-view'
 import { AdminNovelsView } from './novels-view'
+import { clearAdminDraftRecoveries } from '@/lib/admin-draft-recovery'
 import type { Draft } from '@/lib/admin-drafts'
 import type { PostSummary } from '@/lib/content'
 import type { FormEvent, ReactNode } from 'react'
@@ -33,6 +34,13 @@ const signedOutSession: SessionState = {
   authenticated: false,
   csrfToken: '',
   writesEnabled: false,
+}
+
+const viewLabels: Record<AdminView, string> = {
+  overview: '工作台概览',
+  posts: '内容库',
+  editor: '文章编辑器',
+  novels: '小说管理',
 }
 
 export function AdminStudio({
@@ -105,8 +113,13 @@ export function AdminStudio({
       method: 'DELETE',
       headers: { 'x-csrf-token': session.csrfToken },
     })
+    clearAdminDraftRecoveries(localStorage)
     setSession(signedOutSession)
     setDrafts([])
+  }
+
+  function removeDraftFromWorkspace(id: string) {
+    setDrafts((current) => current.filter((draft) => draft.id !== id))
   }
 
   if (!session) {
@@ -197,6 +210,19 @@ export function AdminStudio({
       </aside>
 
       <main className={`studio-main studio-main-${view}`}>
+        <header className="studio-mobile-header">
+          <Link aria-label="返回工作台概览" className="studio-mobile-brand" href="/admin">施</Link>
+          <div>
+            <span>EDITORIAL STUDIO</span>
+            <strong>{viewLabels[view]}</strong>
+          </div>
+          <a aria-label="查看公开网站" href="/zh-cn" rel="noreferrer" target="_blank">
+            <ExternalLink />
+          </a>
+          <button aria-label="退出登录" onClick={() => void logout()} type="button">
+            <LogOut />
+          </button>
+        </header>
         {!session.writesEnabled ? (
           <div className="studio-readonly" role="status">
             当前环境为只读模式。你仍可浏览和预览内容，发布与云保存已暂停。
@@ -209,6 +235,7 @@ export function AdminStudio({
           <AdminPostsView
             csrfToken={session.csrfToken}
             drafts={drafts}
+            onDraftDeleted={removeDraftFromWorkspace}
             posts={posts}
             writesEnabled={session.writesEnabled}
           />
@@ -217,6 +244,7 @@ export function AdminStudio({
           <AdminEditor
             csrfToken={session.csrfToken}
             draftId={draftId ?? 'new'}
+            onDraftDeleted={removeDraftFromWorkspace}
             writesEnabled={session.writesEnabled}
           />
         ) : null}

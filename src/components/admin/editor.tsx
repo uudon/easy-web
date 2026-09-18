@@ -27,8 +27,10 @@ import {
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
+import { ConfirmationDialog } from './confirmation-dialog'
 import { readError } from './admin-studio'
 import { Markdown } from '@/components/markdown'
+import { adminDraftRecoveryKey } from '@/lib/admin-draft-recovery'
 import type { Draft, DraftAsset } from '@/lib/admin-drafts'
 import { getMarkdownStats } from '@/lib/markdown-stats'
 import type { ChangeEvent, KeyboardEvent as ReactKeyboardEvent } from 'react'
@@ -51,10 +53,12 @@ const localSaveDelayMs = 250
 export function AdminEditor({
   csrfToken,
   draftId,
+  onDraftDeleted,
   writesEnabled,
 }: {
   csrfToken: string
   draftId: string
+  onDraftDeleted?: (id: string) => void
   writesEnabled: boolean
 }) {
   const router = useRouter()
@@ -62,6 +66,7 @@ export function AdminEditor({
   const fileInputRef = useRef<HTMLInputElement>(null)
   const createdNewDraftRef = useRef(false)
   const saveErrorRef = useRef('')
+  const localSaveTimeoutRef = useRef<number | null>(null)
   const [draft, setDraft] = useState<Draft | null>(null)
   const [mode, setMode] = useState<EditorMode>('split')
   const [saveState, setSaveState] = useState<SaveState>('idle')
@@ -70,6 +75,14 @@ export function AdminEditor({
   const [publishError, setPublishError] = useState('')
   const [busyAction, setBusyAction] = useState('')
   const [recoveryLoaded, setRecoveryLoaded] = useState(false)
+  const [deleteTarget, setDeleteTarget] = useState<{
+    id: string
+    title: string
+    confirmationText: string
+    local: boolean
+    revision?: string
+  } | null>(null)
+  const [deleteError, setDeleteError] = useState('')
 
   const loadDraft = useCallback(async () => {
     if (draftId === 'new') {
@@ -134,15 +147,26 @@ export function AdminEditor({
   }, [loadDraft])
 
   useEffect(() => {
-    if (!draft || !recoveryLoaded || saveState === 'saved') return
-    const timeout = window.setTimeout(() => {
+    if (
+      !draft
+      || !recoveryLoaded
+      || saveState === 'saved'
+      || deleteTarget
+      || busyAction === 'delete'
+    ) return
+    localSaveTimeoutRef.current = window.setTimeout(() => {
       localStorage.setItem(
-        localStorageKey(draft.id),
+        adminDraftRecoveryKey(draft.id),
         JSON.stringify({ draft, savedAt: new Date().toISOString() }),
       )
     }, localSaveDelayMs)
-    return () => window.clearTimeout(timeout)
-  }, [draft, recoveryLoaded, saveState])
+    return () => {
+      if (localSaveTimeoutRef.current !== null) {
+        window.clearTimeout(localSaveTimeoutRef.current)
+        localSaveTimeoutRef.current = null
+      }
+    }
+  }, [busyAction, deleteTarget, draft, recoveryLoaded, saveState])
 
   const saveDraft = useCallback(async (): Promise<Draft | null> => {
     if (!draft || !writesEnabled) return null
@@ -173,10 +197,10 @@ export function AdminEditor({
           status: 'draft',
         }
         localStorage.setItem(
-          localStorageKey(targetDraft.id),
+          adminDraftRecoveryKey(targetDraft.id),
           JSON.stringify({ draft: targetDraft, savedAt: new Date().toISOString() }),
         )
-        localStorage.removeItem(localStorageKey(draft.id))
+        localStorage.removeItem(adminDraftRecoveryKey(draft.id))
       }
 
       const response = await fetch(`/api/admin/drafts/${encodeURIComponent(targetDraft.id)}`, {
@@ -207,7 +231,7 @@ export function AdminEditor({
       }
       setDraft(result.data)
       setSaveState('saved')
-      localStorage.removeItem(localStorageKey(result.data.id))
+      localStorage.removeItem(adminDraftRecoveryKey(result.data.id))
       if (draft.id === 'local-new') {
         router.replace(`/admin/editor/${result.data.id}`)
       }
@@ -230,10 +254,15 @@ export function AdminEditor({
   }, [csrfToken, draft, router, writesEnabled])
 
   useEffect(() => {
-    if (saveState !== 'dirty' || !writesEnabled) return
+    if (
+      saveState !== 'dirty'
+      || !writesEnabled
+      || deleteTarget
+      || busyAction === 'delete'
+    ) return
     const timeout = window.setTimeout(() => void saveDraft(), cloudSaveDelayMs)
     return () => window.clearTimeout(timeout)
-  }, [saveDraft, saveState, writesEnabled])
+  }, [busyAction, deleteTarget, saveDraft, saveState, writesEnabled])
 
   useEffect(() => {
     const handleKeyboardSave = (event: globalThis.KeyboardEvent) => {
@@ -373,8 +402,8 @@ export function AdminEditor({
       if (!response.ok || !result.data) {
         throw new Error(readError(result.error, '发布失败。'))
       }
-      localStorage.removeItem(localStorageKey(savedDraft.id))
-      localStorage.removeItem(localStorageKey('local-new'))
+      localStorage.removeItem(adminDraftRecoveryKey(savedDraft.id))
+      localStorage.removeItem(adminDraftRecoveryKey('local-new'))
       setPublishOpen(false)
       setSaveState('saved')
       const publishSummary = `发布提交成功${
@@ -394,29 +423,87 @@ export function AdminEditor({
     }
   }
 
-  async function deleteDraft() {
-    if (!draft || draft.id === 'local-new') {
-      router.push('/admin/posts')
+  async function prepareDeleteDraft() {
+    if (!draft) return
+    if (saveState === 'saving') {
+      setMessage('草稿正在保存，请稍后再删除。')
       return
     }
-    const confirmation = window.prompt(`输入“${draft.title || '无标题草稿'}”确认删除草稿：`)
-    if (confirmation !== (draft.title || '无标题草稿')) return
+    if (draft.id === 'local-new') {
+      setDeleteError('')
+      setDeleteTarget({
+        id: draft.id,
+        title: draft.title || '无标题草稿',
+        confirmationText: draft.title.trim() || 'DELETE',
+        local: true,
+      })
+      return
+    }
     setBusyAction('delete')
+    setMessage('')
+    setDeleteError('')
     try {
       const response = await fetch(`/api/admin/drafts/${encodeURIComponent(draft.id)}`, {
+        cache: 'no-store',
+      })
+      const result = await readJson<{ data?: Draft; error?: ApiError }>(response)
+      if (!response.ok || !result.data) {
+        throw new Error(readError(result.error, '无法读取最新草稿，请重试。'))
+      }
+      setDeleteTarget({
+        id: result.data.id,
+        title: result.data.title || '无标题草稿',
+        confirmationText: result.data.title.trim() || 'DELETE',
+        local: false,
+        revision: result.data.revision,
+      })
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : '无法准备删除操作。')
+    } finally {
+      setBusyAction('')
+    }
+  }
+
+  async function confirmDeleteDraft() {
+    if (!draft || !deleteTarget) return
+    setBusyAction('delete')
+    setMessage('')
+    setDeleteError('')
+    try {
+      if (deleteTarget.local) {
+        if (localSaveTimeoutRef.current !== null) {
+          window.clearTimeout(localSaveTimeoutRef.current)
+          localSaveTimeoutRef.current = null
+        }
+        localStorage.removeItem(adminDraftRecoveryKey(deleteTarget.id))
+        localStorage.removeItem(adminDraftRecoveryKey('local-new'))
+        setDeleteTarget(null)
+        setDraft(null)
+        router.push('/admin/posts')
+        return
+      }
+      if (!deleteTarget.revision) throw new Error('草稿版本信息缺失，请关闭窗口后重试。')
+      const response = await fetch(`/api/admin/drafts/${encodeURIComponent(deleteTarget.id)}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'x-csrf-token': csrfToken,
         },
-        body: JSON.stringify({ baseRevision: draft.revision }),
+        body: JSON.stringify({ baseRevision: deleteTarget.revision }),
       })
       const result = await readJson<{ error?: ApiError }>(response)
+      if (response.status === 409) {
+        setDeleteTarget(null)
+        setMessage('草稿已在其他页面更新。请重新点击删除，确认最新版本后再操作。')
+        return
+      }
       if (!response.ok) throw new Error(readError(result.error, '删除草稿失败。'))
-      localStorage.removeItem(localStorageKey(draft.id))
+      localStorage.removeItem(adminDraftRecoveryKey(deleteTarget.id))
+      onDraftDeleted?.(deleteTarget.id)
+      setDeleteTarget(null)
       router.push('/admin/posts')
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : '删除草稿失败。')
+      setDeleteError(error instanceof Error ? error.message : '删除草稿失败。')
     } finally {
       setBusyAction('')
     }
@@ -588,7 +675,12 @@ export function AdminEditor({
             {issues.length ? issues.map((issue) => <p className="issue" key={issue}><X />{issue}</p>) : <p className="passed"><Check />可以发布</p>}
           </section>
 
-          <button className="delete-draft-button" disabled={busyAction === 'delete'} onClick={() => void deleteDraft()} type="button">
+          <button
+            className="delete-draft-button"
+            disabled={busyAction === 'delete' || saveState === 'saving'}
+            onClick={() => void prepareDeleteDraft()}
+            type="button"
+          >
             <Trash2 />删除草稿
           </button>
         </aside>
@@ -604,6 +696,25 @@ export function AdminEditor({
           onPublish={() => void publishDraft()}
           stats={stats}
           writesEnabled={writesEnabled}
+        />
+      ) : null}
+      {deleteTarget ? (
+        <ConfirmationDialog
+          busy={busyAction === 'delete'}
+          confirmationText={deleteTarget.confirmationText}
+          description={
+            deleteTarget.local
+              ? '这份内容只保存在当前浏览器中，删除后无法从云端恢复。'
+              : '草稿和暂存图片会从草稿分支移除，已经发布的文章不会受到影响。'
+          }
+          error={deleteError}
+          itemLabel={deleteTarget.title}
+          onCancel={() => {
+            setDeleteError('')
+            setDeleteTarget(null)
+          }}
+          onConfirm={() => void confirmDeleteDraft()}
+          title="确认删除草稿"
         />
       ) : null}
     </div>
@@ -850,13 +961,9 @@ function createLocalDraft(): Draft {
   }
 }
 
-function localStorageKey(id: string) {
-  return `easy-web:admin-draft:${id}`
-}
-
 function readLocalRecovery(id: string): { draft: Partial<Draft>; savedAt: string } | null {
   try {
-    const value = localStorage.getItem(localStorageKey(id))
+    const value = localStorage.getItem(adminDraftRecoveryKey(id))
     if (!value) return null
     const parsed = JSON.parse(value) as { draft?: Partial<Draft>; savedAt?: string }
     return parsed.draft && parsed.savedAt ? { draft: parsed.draft, savedAt: parsed.savedAt } : null

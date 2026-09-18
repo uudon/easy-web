@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { siteMetadata } from '@/lib/site-metadata'
 
 import '../globals.css'
+import '../admin-workspace.css'
 
 export const metadata: Metadata = siteMetadata
 
